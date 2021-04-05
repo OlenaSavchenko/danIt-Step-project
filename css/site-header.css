@@ -1,0 +1,6 @@
+.page-header__background {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-image: url(../img/header-background.jpg);
+}
