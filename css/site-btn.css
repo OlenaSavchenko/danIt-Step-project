@@ -1,0 +1,52 @@
+.btn {
+  border: none;
+  cursor: pointer;
+  font-family: var(--ff);
+}
+
+.menu__btn::after {
+  content: "";
+  position: absolute;
+  display: none;
+  margin-top: 44px;
+  width: 100%;
+  height: 2px;
+  background-color: var(--green-dec-color);
+  transition: color 200ms linear;
+}
+
+.menu__btn:hover::after,
+.menu__btn:focus::after {
+  display: block;
+  transition: color 200ms linear;
+}
+
+.menu__btn {
+  position: relative;
+  background-color: transparent;
+}
+
+.header__btn {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 32px;
+  color: var(--light-text-color);
+  padding: 16px 17px;
+  border-radius: 4px;
+  box-shadow: 0 -5px 0 0 rgb(255, 255, 255);
+  transition: color 200ms linear;
+}
+
+.header__btn--explore {
+  margin-right: 26px;
+  background-color: var(--green-dec-color);
+}
+
+.header__btn--purchase {
+  background-color: var(--light-blue-dec-color);
+}
+
+.btn--install {
+  background-color: var(--green-dec-color);
+}

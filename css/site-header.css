@@ -4,3 +4,42 @@
   background-size: cover;
   background-image: url(../img/header-background.jpg);
 }
+
+.header__box {
+  margin: 0 auto 134px;
+  width: 798px;
+  height: 100%;
+  font-family: var(--ff);
+  color: var(--light-text-color);
+  text-align: center;
+}
+
+.header__title {
+  margin-bottom: 22px;
+  font-weight: 700;
+  font-size: 35px;
+  text-transform: uppercase;
+}
+
+.header--second-part {
+  color: var(--green-dec-color);
+}
+.header__subtitle {
+  display: block;
+  margin-bottom: 22px;
+  font-weight: 700;
+  font-size: 78px;
+}
+
+.header__content {
+  font-weight: 300;
+  font-size: 34px;
+
+  text-transform: capitalize;
+  color: var(--light-grey-text-color);
+}
+.header__btn-box {
+  width: 364px;
+  margin: 0 auto;
+  padding-bottom: 244px;
+}

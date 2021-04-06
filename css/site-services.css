@@ -1,0 +1,44 @@
+.services__list {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.services__item {
+  background-color: rgb(248, 252, 254);
+  width: 16%;
+  padding: 16px 0;
+  border: 1px solid var(--light-grey-text-color);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 39px;
+  color: var(--middle-grey-text-color);
+}
+
+.services__item:hover,
+.services__item:focus {
+  border: 1px solid var(--green-dec-color);
+  transition: color 200ms linear;
+  cursor: pointer;
+}
+
+.services__item--click {
+  position: relative;
+  color: var(--light-text-color);
+  background-color: var(--green-dec-color);
+}
+
+.services__item--click::before,
+.services__item--click::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  border: 10px solid transparent;
+
+  border-top: 10px solid var(--green-dec-color);
+}
+.services__item--click::after {
+  border-top: 10px solid var(--green-dec-color);
+  bottom: -19px;
+}

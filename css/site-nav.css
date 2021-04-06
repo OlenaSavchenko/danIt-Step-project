@@ -31,8 +31,7 @@
   transition: color 200ms linear;
 }
 
-.menu__link::after,
-.menu__btn::after {
+.menu__link::after {
   content: "";
   position: absolute;
   display: none;
@@ -44,16 +43,9 @@
 }
 
 .menu__link:hover::after,
-.menu__link:focus::after,
-.menu__btn:hover::after,
-.menu__btn:focus::after {
+.menu__link:focus::after {
   display: block;
   transition: color 200ms linear;
-}
-
-.menu__btn {
-  position: relative;
-  background-color: transparent;
 }
 
 .menu__svg {
