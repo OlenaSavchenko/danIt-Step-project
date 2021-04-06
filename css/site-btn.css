@@ -24,6 +24,7 @@
 .menu__btn {
   position: relative;
   background-color: transparent;
+  
 }
 
 .header__btn {
@@ -47,6 +48,10 @@
   background-color: var(--light-blue-dec-color);
 }
 
-.btn--install {
+.install__btn {
   background-color: var(--green-dec-color);
+}
+
+.btn__load-more {
+  margin-bottom: 100px;
 }

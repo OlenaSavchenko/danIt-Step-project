@@ -81,8 +81,8 @@
     </div>
     <main>
       <!-- list of options section-->
-      <section>
-        <ul class="list container option">
+      <section class="option">
+        <ul class="list container option__list">
           <li class="option__item">
             <svg
               class="option__svg"
@@ -157,8 +157,8 @@
           </li>
         </ul>
       </section>
-      <!-- our services section-->
-      <section class="container">
+      <!--  services section-->
+      <section class="container services">
         <h2 class="title title--underline">our services</h2>
         <ul class="list services__list">
           <li class="services__item services__item--click">Web Design</li>
@@ -168,7 +168,7 @@
           <li class="services__item">Online Marketing</li>
           <li class="services__item">Seo Service</li>
         </ul>
-        <div>
+        <div class="services__conten-box">
           <img
             class="services__photo"
             src="./img/services-section/web-design.jpg"
@@ -178,10 +178,12 @@
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
             itaque dicta necessitatibus, sunt amet quae in corrupti nisi optio
-            illum.
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde sunt
+            soluta cupiditate repellendus esse ratione adipisci nobis alias vel
+            vitae?
           </p>
         </div>
-        <div>
+        <div class="services__conten-box services__conten-box--hidden">
           <img
             class="services__photo"
             src="./img/services-section/graphic-design.jpg"
@@ -191,10 +193,12 @@
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
             dicta nemo optio ducimus laborum. Deserunt, adipisci. Quidem rem
-            pariatur dignissimos!
+            pariatur dignissimos! Lorem ipsum dolor sit amet, consectetur
+            adipisicing elit. Numquam ullam, qui quam provident exercitationem
+            reiciendis. Consequuntur rem voluptatem cupiditate corrupti!
           </p>
         </div>
-        <div>
+        <div class="services__conten-box services__conten-box--hidden">
           <img
             class="services__photo"
             src="./img/services-section/online-support.jpg"
@@ -204,10 +208,12 @@
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
             consectetur provident quasi voluptates harum libero iste hic
-            nesciunt ullam. Neque.
+            nesciunt ullam. Lorem ipsum dolor sit amet consectetur adipisicing
+            elit. Cupiditate eligendi doloremque in dolorem aut odio possimus.
+            Quam laudantium suscipit est.
           </p>
         </div>
-        <div>
+        <div class="services__conten-box services__conten-box--hidden">
           <img
             class="services__photo"
             src="./img/services-section/app-design.jpg"
@@ -217,10 +223,12 @@
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
             consectetur quo dolor aliquid voluptatem earum aliquam accusamus!
-            Eos, dolor id.
+            Eos, dolor Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Ipsa alias tempore ea deserunt molestias earum non eum animi libero
+            mollitia?
           </p>
         </div>
-        <div>
+        <div class="services__conten-box services__conten-box--hidden">
           <img
             class="services__photo"
             src="./img/services-section/online-marketing.jpg"
@@ -233,7 +241,7 @@
             Veritatis!
           </p>
         </div>
-        <div>
+        <div class="services__conten-box services__conten-box--hidden">
           <img
             class="services__photo"
             src="./img/services-section/seo-service.jpg"
@@ -248,12 +256,277 @@
         </div>
       </section>
       <!-- install section -->
-      <section>
-        <p></p>
-        <p></p>
-        <btn class="btn outline header__btn btn--install" type="button">
-          purchase now
-        </btn>
+      <section class="install">
+        <div class="install__background">
+          <div class="install__gradient">
+            <div class="container install__container">
+              <h2 class="install__title">
+                Everything is ready. just buy and install now
+              </h2>
+              <p class="install__content">
+                Smooth reliable, responsive ready, perfect portfolio, unique
+                blog layout and many many options for you
+              </p>
+              <btn class="btn outline header__btn install__btn" type="button">
+                purchase now
+              </btn>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- works example section -->
+      <section class="works">
+        <div class="container">
+          <h2 class="title title--underline">Our Amazing Work</h2>
+          <ul class="list works__list">
+            <li class="works__item">All</li>
+            <li class="works__item">Graphic Design</li>
+            <li class="works__item">Web Design</li>
+            <li class="works__item">Landing Pages</li>
+            <li class="works__item">Wordpress</li>
+          </ul>
+
+          <ul class="list works__photos-list">
+            <li class="works__photos-item">
+              <div class="works__photos-container">
+                <img
+                  class="works__photos-img"
+                  src="./img/works-section/works-section1.jpg"
+                  alt="our works"
+                />
+              </div>
+            </li>
+            <li class="works__photos-item">
+              <div class="works__photos-container">
+                <img
+                  class="works__photos-img"
+                  src="./img/works-section/works-section2.jpg"
+                  alt="our works"
+                />
+              </div>
+            </li>
+            <li class="works__photos-item">
+              <div class="works__photos-container">
+                <img
+                  class="works__photos-img"
+                  src="./img/works-section/works-section3.jpg"
+                  alt="our works"
+                />
+              </div>
+            </li>
+            <li class="works__photos-item">
+              <div class="works__photos-container">
+                <img
+                  class="works__photos-img"
+                  src="./img/works-section/works-section4.jpg"
+                  alt="our works"
+                />
+              </div>
+            </li>
+            <li class="works__photos-item">
+              <div class="works__photos-container">
+                <img
+                  class="works__photos-img"
+                  src="./img/works-section/works-section5.jpg"
+                  alt="our works"
+                />
+              </div>
+            </li>
+            <li class="works__photos-item">
+              <div class="works__photos-container">
+                <img
+                  class="works__photos-img"
+                  src="./img/works-section/works-section6.jpg"
+                  alt="our works"
+                />
+              </div>
+            </li>
+            <li class="works__photos-item">
+              <div class="works__photos-container">
+                <img
+                  class="works__photos-img"
+                  src="./img/works-section/works-section7.jpg"
+                  alt="our works"
+                />
+              </div>
+            </li>
+            <li class="works__photos-item">
+              <div class="works__photos-container">
+                <img
+                  class="works__photos-img"
+                  src="./img/works-section/works-section8.jpg"
+                  alt="our works"
+                />
+              </div>
+            </li>
+            <li class="works__photos-item">
+              <div class="works__photos-container">
+                <img
+                  class="works__photos-img"
+                  src="./img/works-section/works-section9.jpg"
+                  alt="our works"
+                />
+              </div>
+            </li>
+            <li class="works__photos-item">
+              <div class="works__photos-container">
+                <img
+                  class="works__photos-img"
+                  src="./img/works-section/works-section10.jpg"
+                  alt="our works"
+                />
+              </div>
+            </li>
+            <li class="works__photos-item">
+              <div class="works__photos-container">
+                <img
+                  class="works__photos-img"
+                  src="./img/works-section/works-section11.jpg"
+                  alt="our works"
+                />
+              </div>
+            </li>
+            <li class="works__photos-item">
+              <div class="works__photos-container">
+                <img
+                  class="works__photos-img"
+                  src="./img/works-section/works-section12.jpg"
+                  alt="our works"
+                />
+              </div>
+            </li>
+            <li class="works__photos-item">
+              <div class="works__photos-container">
+                <img
+                  class="works__photos-img"
+                  src="./img/works-section/works-section13.jpg"
+                  alt="our works"
+                />
+              </div>
+            </li>
+            <li class="works__photos-item">
+              <div class="works__photos-container">
+                <img
+                  class="works__photos-img"
+                  src="./img/works-section/works-section14.jpg"
+                  alt="our works"
+                />
+              </div>
+            </li>
+            <li class="works__photos-item">
+              <div class="works__photos-container">
+                <img
+                  class="works__photos-img"
+                  src="./img/works-section/works-section15.jpg"
+                  alt="our works"
+                />
+              </div>
+            </li>
+            <li class="works__photos-item">
+              <div class="works__photos-container">
+                <img
+                  class="works__photos-img"
+                  src="./img/works-section/works-section16.jpg"
+                  alt="our works"
+                />
+              </div>
+            </li>
+            <li class="works__photos-item">
+              <div class="works__photos-container">
+                <img
+                  class="works__photos-img"
+                  src="./img/works-section/works-section17.jpg"
+                  alt="our works"
+                />
+              </div>
+            </li>
+            <li class="works__photos-item">
+              <div class="works__photos-container">
+                <img
+                  class="works__photos-img"
+                  src="./img/works-section/works-section18.jpg"
+                  alt="our works"
+                />
+              </div>
+            </li>
+            <li class="works__photos-item">
+              <div class="works__photos-container">
+                <img
+                  class="works__photos-img"
+                  src="./img/works-section/works-section19.jpg"
+                  alt="our works"
+                />
+              </div>
+            </li>
+            <li class="works__photos-item">
+              <div class="works__photos-container">
+                <img
+                  class="works__photos-img"
+                  src="./img/works-section/works-section20.jpg"
+                  alt="our works"
+                />
+              </div>
+            </li>
+            <li class="works__photos-item">
+              <div class="works__photos-container">
+                <img
+                  class="works__photos-img"
+                  src="./img/works-section/works-section21.jpg"
+                  alt="our works"
+                />
+              </div>
+            </li>
+            <li class="works__photos-item">
+              <div class="works__photos-container">
+                <img
+                  class="works__photos-img"
+                  src="./img/works-section/works-section22.jpg"
+                  alt="our works"
+                />
+              </div>
+            </li>
+            <li class="works__photos-item">
+              <div class="works__photos-container">
+                <img
+                  class="works__photos-img"
+                  src="./img/works-section/works-section23.jpg"
+                  alt="our works"
+                />
+              </div>
+            </li>
+            <li class="works__photos-item">
+              <div class="works__photos-container">
+                <img
+                  class="works__photos-img"
+                  src="./img/works-section/works-section24.jpg"
+                  alt="our works"
+                />
+                <div class="works__photos-overlay">
+                  <ul class="list">
+                    <li class="works__photos-item">
+                      <a
+                        class="works__photos-link works__photos-link--chain"
+                        href="#"
+                      >
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        class="works__photos-link works__photos-link--elipse"
+                        href="#"
+                      ></a>
+                    </li>
+                  </ul>
+                  <p class="works__photos-subtitle">creative design</p>
+                  <p class="works__photos-content">web design</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <btn class="btn outline btn__load-more" type="button">
+            Load More
+          </btn>
+        </div>
       </section>
     </main>
   </body>

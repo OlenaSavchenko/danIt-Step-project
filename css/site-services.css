@@ -1,6 +1,10 @@
+.services {
+  margin-bottom: 90px;
+}
+
 .services__list {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   text-align: center;
   margin-bottom: 28px;
 }
@@ -41,4 +45,20 @@
 .services__item--click::after {
   border-top: 10px solid var(--green-dec-color);
   bottom: -19px;
+}
+
+.services__conten-box {
+  display: flex;
+
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.services__conten-box--hidden {
+  display: none;
+}
+
+.services__photo {
+  margin-right: 15px;
 }

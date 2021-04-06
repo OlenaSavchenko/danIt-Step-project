@@ -2,7 +2,7 @@
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  background-image: url(../img/header-background.jpg);
+  background-image: url(../img/header-section/header-background.jpg);
 }
 
 .header__box {
@@ -34,7 +34,6 @@
 .header__content {
   font-weight: 300;
   font-size: 34px;
-
   text-transform: capitalize;
   color: var(--light-grey-text-color);
 }
