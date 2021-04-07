@@ -1,0 +1,21 @@
+.reviews__background {
+  position: relative;
+  height: 853px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-image: url(../img/reviews-section/reviews-background.jpg);
+}
+
+.reviews__gradient {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: var(--reviews-bc-gradient);
+}
+.reviews__container {
+  padding-top: 98px;
+  padding-bottom: 104px;
+}
