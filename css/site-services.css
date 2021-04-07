@@ -10,11 +10,11 @@
 }
 
 .services__item {
-  background-color: rgb(248, 252, 254);
+  background-color: var(--works-bc-color);
   width: 16%;
   padding: 16px 0;
   border: 1px solid var(--light-grey-text-color);
-  font-weight: 400;
+  font-weight: var(--normal-fw);
   font-size: 16px;
   line-height: 39px;
   color: var(--middle-grey-text-color);
@@ -39,7 +39,6 @@
   position: absolute;
   left: 50%;
   border: 10px solid transparent;
-
   border-top: 10px solid var(--green-dec-color);
 }
 .services__item--click::after {
@@ -49,8 +48,7 @@
 
 .services__conten-box {
   display: flex;
-
-  font-weight: 300;
+  font-weight: var(--light-fw);
   font-size: 14px;
   line-height: 24px;
 }

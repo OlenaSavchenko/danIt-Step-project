@@ -2,6 +2,15 @@
   border: none;
   cursor: pointer;
   font-family: var(--ff);
+  text-transform: uppercase;
+  font-weight: var(--bold-fw);
+  font-size: 15px;
+  line-height: 32px;
+  color: var(--light-text-color);
+  padding: 16px 17px;
+  border-radius: 4px;
+  box-shadow: 0 -5px 0 0 var(--light-text-color);
+  transition: color 200ms linear;
 }
 
 .menu__btn::after {
@@ -24,19 +33,9 @@
 .menu__btn {
   position: relative;
   background-color: transparent;
-  
-}
-
-.header__btn {
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 15px;
-  line-height: 32px;
-  color: var(--light-text-color);
-  padding: 16px 17px;
-  border-radius: 4px;
-  box-shadow: 0 -5px 0 0 rgb(255, 255, 255);
-  transition: color 200ms linear;
+  border: none;
+  cursor: pointer;
+  font-family: var(--ff);
 }
 
 .header__btn--explore {
@@ -52,6 +51,7 @@
   background-color: var(--green-dec-color);
 }
 
-.btn__load-more {
-  margin-bottom: 100px;
+.load-more__btn {
+  padding: 22px 23px;
+  background: no-repeat left var(--green-dec-color);
 }

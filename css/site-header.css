@@ -9,14 +9,13 @@
   margin: 0 auto 134px;
   width: 798px;
   height: 100%;
-  font-family: var(--ff);
   color: var(--light-text-color);
   text-align: center;
 }
 
 .header__title {
   margin-bottom: 22px;
-  font-weight: 700;
+  font-weight: var(--bold-fw);
   font-size: 35px;
   text-transform: uppercase;
 }
@@ -27,12 +26,12 @@
 .header__subtitle {
   display: block;
   margin-bottom: 22px;
-  font-weight: 700;
+  font-weight: var(--bold-fw);
   font-size: 78px;
 }
 
 .header__content {
-  font-weight: 300;
+  font-weight: var(--light-fw);
   font-size: 34px;
   text-transform: capitalize;
   color: var(--light-grey-text-color);

@@ -3,20 +3,19 @@
 }
 
 .option__list {
-  display: flex;
   width: 100%;
-
   justify-content: space-between;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 24px;
+  display: flex;
   text-align: center;
   text-transform: uppercase;
+  font-weight: var(--bold-fw);
+  font-size: 20px;
+  line-height: 24px;
 }
 
 .option__item {
   width: 25%;
-  box-shadow: 0 -5px 0 0 rgb(255, 255, 255);
+  box-shadow: 0 -5px 0 0 var(--light-text-color);
 }
 
 .option__item:nth-child(odd) {

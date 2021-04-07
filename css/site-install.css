@@ -24,7 +24,7 @@
 
 .install__title {
   margin-bottom: 12px;
-  font-weight: 700px;
+  font-weight: var(--bold-fw);
   font-size: 40px;
   line-height: 40px;
   text-transform: uppercase;
@@ -32,7 +32,7 @@
 }
 .install__content {
   margin-bottom: 67px;
-  font-weight: 400;
+  font-weight: var(--normal-fw);
   font-size: 16px;
   line-height: 40px;
   color: var(--light-grey-text-color);

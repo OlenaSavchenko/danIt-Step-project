@@ -9,22 +9,22 @@
   width: 58px;
   margin-right: 6px;
   text-align: center;
-  font-weight: 700;
+  font-weight: var(--bold-fw);
   font-size: 40px;
   line-height: 67px;
-  color: #ffffff;
+  color: var(--light-text-color);
   background-color: var(--green-dec-color);
   clip-path: polygon(0 30%, 50% 0, 100% 30%, 100% 70%, 50% 100%, 0 70%);
 }
 
 .logo__text {
-  font-weight: 400;
+  font-weight: var(--normal-fw);
   font-size: 38px;
   line-height: 64px;
 }
 
 .logo__text--first-word {
-  color: #ffffff;
+  color: var(--light-text-color);
 }
 .logo__text--second-word {
   color: var(--green-dec-color);

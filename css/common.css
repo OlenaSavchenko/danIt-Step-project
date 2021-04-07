@@ -62,7 +62,7 @@ img {
 .title--underline::after {
   content: "";
   display: block;
-  margin: 4px auto 0;
+  margin: 24px auto 0;
   width: 78px;
   height: 2px;
   background-color: var(--green-dec-color);
