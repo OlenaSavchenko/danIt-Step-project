@@ -18,6 +18,7 @@
   font-size: 14px;
   line-height: 42px;
   color: var(--middle-grey-text-color);
+  transition: color 400ms linear;
 }
 .works__item:first-child {
   padding: 14px 29px;

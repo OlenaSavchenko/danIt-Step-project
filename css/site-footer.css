@@ -1,0 +1,19 @@
+.footer {
+  background-color: var(--footer--bc-color);
+  padding: 48px 798px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: var(--light-fw);
+  font-size: 14px;
+  line-height: 26px;
+  color: var(--footer-text-color);
+}
+.footer__container {
+  width: 326px;
+  margin: 0 auto;
+  text-align: center;
+}
+.footer__link {
+  color: var(--green-dec-color);
+}
