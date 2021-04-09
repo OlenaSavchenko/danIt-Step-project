@@ -18,17 +18,8 @@
   --reviews-green-border-color: rgba(31, 218, 181, 0.2);
   --footer--bc-color: rgb(34, 53, 63);
   --footer-text-color: rgb(174, 174, 174);
-  /* --main-text-color: rgb(51, 51, 51);
-    
-    --gray-text-color: rgb(153, 153, 153);
-    
-    --red-dec-color: rgb(243, 129, 12);
-    --yellow-dec-color: rgb(252, 227, 138);
-    --gradient: linear-gradient(
-      to top,
-      rgba(252, 227, 138, 90%),
-      rgba(243, 129, 129, 90%)
-    ); */
+  --gallery-bc-gradient: rgba(0, 0, 0, 0.64);
+  --gallery-bc-link: rgb(20, 185, 213);
   --ff: "Montserrat", "Arial", sans-serif;
   --bold-fw: 700;
   --normal-fw: 400;
