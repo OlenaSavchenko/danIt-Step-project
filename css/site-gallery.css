@@ -1,3 +1,25 @@
 .gallery {
   margin-bottom: 68px;
 }
+
+.grid-item {
+  width: 33, 333%;
+}
+.grid-item--first > img:not(:last-child),
+.grid-item--second > img:not(:last-child) {
+  margin-right: 20px;
+}
+
+.grid-item--first > img:not(:last-child),
+.grid-item--second > img:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.grid-item--third > img:nth-child(-n + 8) {
+  margin-bottom: 3px;
+  margin-right: 3px;
+}
+
+.grid-item--third > img:nth-child(n + 9):not(:last-child) {
+  margin-bottom: 20px;
+}

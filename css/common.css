@@ -46,7 +46,9 @@ img {
   color: var(--dark-text-color);
   text-transform: capitalize;
 }
-
+.title--lowercase {
+  text-transform: none;
+}
 .title--underline::after {
   content: "";
   display: block;
