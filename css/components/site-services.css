@@ -37,7 +37,7 @@
 .services__item--click::after {
   content: "";
   position: absolute;
-  left: 50%;
+  left: 44%;
   border: 10px solid transparent;
   border-top: 10px solid var(--green-dec-color);
 }
