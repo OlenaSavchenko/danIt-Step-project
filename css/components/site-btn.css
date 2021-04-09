@@ -63,11 +63,11 @@
   cursor: pointer;
 }
 .reviews-slider__btn-prev {
-  background: no-repeat center url(../img/svg/left-arrow.svg);
+  background: no-repeat center url(../../img/svg/left-arrow.svg);
 }
 
 .reviews-slider__btn-next {
-  background: no-repeat center url(../img/svg/right-arrow.svg);
+  background: no-repeat center url(../../img/svg/right-arrow.svg);
 }
 
 .reviews-slider__btn:hover,
@@ -79,12 +79,12 @@
 
 .reviews-slider__btn-prev:hover,
 .reviews-slider__btn-prev:focus {
-  background-image: url(../img/svg/left-arrow-hover.svg);
+  background-image: url(../../img/svg/left-arrow-hover.svg);
   transition: color 200ms linear;
 }
 
 .reviews-slider__btn-next:hover,
 .reviews-slider__btn-next:focus {
-  background-image: url(../img/svg/right-arrow-hover.svg);
+  background-image: url(../../img/svg/right-arrow-hover.svg);
   transition: color 200ms linear;
 }

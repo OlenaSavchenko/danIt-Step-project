@@ -1,0 +1,42 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  margin: 0 auto;
+  width: 1160px;
+  font-family: var(--ff);
+}
+
+.link {
+  text-decoration: none;
+  transition: color 200ms linear;
+  font-family: var(--ff);
+}
+
+.list {
+  display: flex;
+  list-style: none;
+}
+
+.outline:active,
+.outline:focus {
+  outline: none;
+}

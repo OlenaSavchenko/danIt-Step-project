@@ -88,20 +88,20 @@
 }
 
 .works__overlay-link--chain {
-  background: no-repeat center url(../img/svg/cnain.svg);
+  background: no-repeat center url(../../img/svg/cnain.svg);
 }
 
 .works__overlay-link--chain:hover {
-  background-image: url(../img/svg/chain-hover.svg);
+  background-image: url(../../img/svg/chain-hover.svg);
   transition: background-color 0.2s linear, background-image 0.2s linear;
 }
 
 .works__overlay-link--elipse {
-  background: no-repeat center url(../img/svg/elipse.svg);
+  background: no-repeat center url(../../img/svg/elipse.svg);
 }
 
 .works__overlay-link--elipse:hover {
-  background-image: url(../img/svg/elipse-hover.svg);
+  background-image: url(../../img/svg/elipse-hover.svg);
   transition: background-color 0.2s linear, background-image 0.2s linear;
 }
 

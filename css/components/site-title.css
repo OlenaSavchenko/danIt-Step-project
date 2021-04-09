@@ -1,0 +1,26 @@
+.title {
+    width: 620x;
+    margin: 0 auto 100px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 40px;
+    color: var(--dark-text-color);
+    text-transform: capitalize;
+  }
+  .title--lowercase {
+    text-transform: none;
+  }
+  .title--underline::after {
+    content: "";
+    display: block;
+    margin: 24px auto 0;
+    width: 78px;
+    height: 2px;
+    background-color: var(--green-dec-color);
+    box-shadow: 12px 4px 0 0 var(--green-dec-color);
+  }
+  
+  .title--light-text {
+    color: var(--light-text-color);
+  }
