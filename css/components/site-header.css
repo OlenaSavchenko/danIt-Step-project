@@ -1,6 +1,6 @@
 .page-header__background {
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center;
   background-size: cover;
   background-image: url(../../img/header-section/header-background.jpg);
 }
@@ -28,6 +28,7 @@
   margin-bottom: 22px;
   font-weight: var(--bold-fw);
   font-size: 78px;
+  text-transform: uppercase;
 }
 
 .header__content {

@@ -64,6 +64,10 @@
   border: 12px solid var(--reviews-green-border-color);
 }
 .reviews-card__img {
+  object-fit: cover;
+  object-position: top;
+  height: 100%;
+  width: 100%;
   border-radius: 50%;
 }
 .reviews-slider {
@@ -80,6 +84,8 @@
 }
 
 .reviews-slider__item {
+  position: relative;
+  overflow: hidden;
   width: 70px;
   height: 71px;
   border-radius: 50%;
@@ -96,5 +102,10 @@
   transition: all 200ms linear;
 }
 .reviews-slider__img {
+  position: absolute;
+  object-fit: cover;
+  object-position: top;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
 }

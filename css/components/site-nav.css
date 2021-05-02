@@ -51,6 +51,8 @@
 .menu__svg {
   width: 20px;
   height: 20px;
+  fill: var(--menu-color);
+  transition: color 200ms linear;
 }
 
 .menu__svg:hover,
