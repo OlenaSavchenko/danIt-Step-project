@@ -10,7 +10,6 @@
   </head>
   <body>
     <!-- menu -->
-
     <header class="page-header__background">
       <nav>
         <div class="menu__wrapper">
@@ -114,99 +113,146 @@
       <!--  services section-->
       <section class="container services">
         <h2 class="title title--underline">our services</h2>
-        <ul class="list services__list">
-          <li class="services__item services__item--click">Web Design</li>
-          <li class="services__item">Graphic Design</li>
-          <li class="services__item">Online Support</li>
-          <li class="services__item">App Design</li>
-          <li class="services__item">Online Marketing</li>
-          <li class="services__item">Seo Service</li>
+        <ul class="list services__list" id="services__list">
+          <li
+            class="services__item services__item--active"
+            data-services-title="Web Design"
+          >
+            Web Design
+          </li>
+          <li class="services__item" data-services-title="Graphic Design">
+            Graphic Design
+          </li>
+          <li class="services__item" data-services-title="Online Support">
+            Online Support
+          </li>
+          <li class="services__item" data-services-title="App Design">
+            App Design
+          </li>
+          <li class="services__item" data-services-title="Online Marketing">
+            Online Marketing
+          </li>
+          <li class="services__item" data-services-title="Seo Service">
+            Seo Service
+          </li>
         </ul>
-        <div class="services__conten-box">
-          <img
-            class="services__photo"
-            src="./img/services-section/web-design.jpg"
-            alt="web-design"
-            height="139"
-          />
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            itaque dicta necessitatibus, sunt amet quae in corrupti nisi optio
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde sunt
-            soluta cupiditate repellendus esse ratione adipisci nobis alias vel
-            vitae?
-          </p>
+        <div class="services__conten-box" data-services-content="Web Design">
+          <div class="services__conten-inner">
+            <img
+              class="services__photo"
+              src="./img/services-section/web-design.jpg"
+              alt="web-design"
+              height="139"
+            />
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
+              itaque dicta necessitatibus, sunt amet quae in corrupti nisi optio
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde
+              sunt soluta cupiditate repellendus esse ratione adipisci nobis
+              alias vel vitae?
+            </p>
+          </div>
         </div>
-        <div class="services__conten-box services__conten-box--hidden">
-          <img
-            class="services__photo"
-            src="./img/services-section/graphic-design.jpg"
-            alt="graphic-design"
-            height="139"
-          />
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
-            dicta nemo optio ducimus laborum. Deserunt, adipisci. Quidem rem
-            pariatur dignissimos! Lorem ipsum dolor sit amet, consectetur
-            adipisicing elit. Numquam ullam, qui quam provident exercitationem
-            reiciendis. Consequuntur rem voluptatem cupiditate corrupti!
-          </p>
+        <div
+          class="services__conten-box"
+          data-services-content="Graphic Design"
+          hidden
+        >
+          <div class="services__conten-inner">
+            <img
+              class="services__photo"
+              src="./img/services-section/graphic-design.jpg"
+              alt="graphic-design"
+              height="139"
+            />
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
+              dicta nemo optio ducimus laborum. Deserunt, adipisci. Quidem rem
+              pariatur dignissimos! Lorem ipsum dolor sit amet, consectetur
+              adipisicing elit. Numquam ullam, qui quam provident exercitationem
+              reiciendis. Consequuntur rem voluptatem cupiditate corrupti!
+            </p>
+          </div>
         </div>
-        <div class="services__conten-box services__conten-box--hidden">
-          <img
-            class="services__photo"
-            src="./img/services-section/online-support.jpg"
-            alt="online-support"
-            height="139"
-          />
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
-            consectetur provident quasi voluptates harum libero iste hic
-            nesciunt ullam. Lorem ipsum dolor sit amet consectetur adipisicing
-            elit. Cupiditate eligendi doloremque in dolorem aut odio possimus.
-            Quam laudantium suscipit est.
-          </p>
+        <div
+          class="services__conten-box"
+          data-services-content="Online Support"
+          hidden
+        >
+          <div class="services__conten-inner">
+            <img
+              class="services__photo"
+              src="./img/services-section/online-support.jpg"
+              alt="online-support"
+              height="139"
+            />
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
+              consectetur provident quasi voluptates harum libero iste hic
+              nesciunt ullam. Lorem ipsum dolor sit amet consectetur adipisicing
+              elit. Cupiditate eligendi doloremque in dolorem aut odio possimus.
+              Quam laudantium suscipit est.
+            </p>
+          </div>
         </div>
-        <div class="services__conten-box services__conten-box--hidden">
-          <img
-            class="services__photo"
-            src="./img/services-section/app-design.jpg"
-            alt="app-design"
-            height="139"
-          />
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
-            consectetur quo dolor aliquid voluptatem earum aliquam accusamus!
-            Eos, dolor Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Ipsa alias tempore ea deserunt molestias earum non eum animi libero
-            mollitia?
-          </p>
+        <div
+          class="services__conten-box"
+          data-services-content="App Design"
+          hidden
+        >
+          <div class="services__conten-inner">
+            <img
+              class="services__photo"
+              src="./img/services-section/app-design.jpg"
+              alt="app-design"
+              height="139"
+            />
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
+              consectetur quo dolor aliquid voluptatem earum aliquam accusamus!
+              Eos, dolor Lorem ipsum dolor sit amet consectetur adipisicing
+              elit. Ipsa alias tempore ea deserunt molestias earum non eum animi
+              libero mollitia?
+            </p>
+          </div>
         </div>
-        <div class="services__conten-box services__conten-box--hidden">
-          <img
-            class="services__photo"
-            src="./img/services-section/online-marketing.jpg"
-            alt="online-marketing"
-            height="139"
-          />
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, esse
-            dolor? Illo dolore soluta consectetur blanditiis eum nostrum animi.
-            Veritatis!
-          </p>
+        <div
+          class="services__conten-box"
+          data-services-content="Online Marketing"
+          hidden
+        >
+          <div class="services__conten-inner">
+            <img
+              class="services__photo"
+              src="./img/services-section/online-marketing.jpg"
+              alt="online-marketing"
+              height="139"
+            />
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit,
+              esse dolor? Illo dolore soluta consectetur blanditiis eum nostrum
+              animi. Veritatis!
+            </p>
+          </div>
         </div>
-        <div class="services__conten-box services__conten-box--hidden">
-          <img
-            class="services__photo"
-            src="./img/services-section/seo-service.jpg"
-            alt="seo-service"
-            height="139"
-          />
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque
-            omnis deleniti quidem ullam quo expedita odio ratione voluptatem
-            porro assumenda!
-          </p>
+        <div
+          class="services__conten-box"
+          data-services-content="Seo Service"
+          hidden
+        >
+          <div class="services__conten-inner">
+            <img
+              class="services__photo"
+              src="./img/services-section/seo-service.jpg"
+              alt="seo-service"
+              height="139"
+            />
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque
+              omnis deleniti quidem ullam quo expedita odio ratione voluptatem
+              porro assumenda!
+            </p>
+          </div>
         </div>
       </section>
       <!-- install section -->
@@ -1080,7 +1126,7 @@
               </a>
             </li>
             <li class="news__item">
-              <a class="link" href="">
+              <a class="link" href="#">
                 <figure>
                   <div class="news-card">
                     <img
@@ -1117,7 +1163,7 @@
                 data="./img/svg/quotes.svg"
                 class="reviews__svg"
               ></object>
-              <div class="reviews-card">
+              <div class="reviews-card" data-reviews-user="Lesya Andrash">
                 <p class="reviews-card__content reviews-card__comment">
                   Integer dignissim, augue tempus ultricies luctus, quam dui
                   laoreet sem, non dictum odio nisi quis massa. Morbi pulvinar
@@ -1142,47 +1188,42 @@
                     />
                   </div>
                 </figure>
-                <div class="reviews-card reviews-card--hidden">
-                  <p class="reviews-card__content reviews-card__comment">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Recusandae rem quia veritatis. Aliquid sunt facilis eum,
-                    nulla minima est ducimus ullam! Nostrum quae explicabo eius!
-                    Sunt deleniti distinctio repellat? Delectus. Saepe iure quos
-                    fugit illum quas neque ipsum, sapiente quidem in officia
-                    eaque, perferendis, voluptatem cupiditate sequi? Sint
-                    aliquid pariatur reiciendis iure perspiciatis harum, fugit
-                    quibusdam tempore voluptas, ex corrupti? Nesciunt fuga sunt
-                    dolorem quos, quas quaerat aliquid exercitationem,
-                    voluptatum, cum ipsum voluptatibus. Praesentium officiis
-                    soluta consequatur, suscipit doloribus quasi fuga tempora
-                    aspernatur. Ex ullam adipisci error ut rerum alias.
-                    Assumenda at, fugiat quibusdam laudantium corporis deserunt
-                    placeat dignissimos? Dolores porro ipsa iste quisquam,
-                    eligendi et libero, veritatis perferendis, quibusdam natus
-                    corporis aliquid ipsum reprehenderit voluptatibus expedita
-                    est excepturi sint.
-                  </p>
-
-                  <figure>
-                    <figcaption>
-                      <h3 class="reviews-card__user-name">Konstantyn Shymko</h3>
-                      <p
-                        class="reviews-card__content reviews-card__user-position"
-                      >
-                        Designer
-                      </p>
-                    </figcaption>
-                    <div class="reviews-card__img-box">
-                      <img
-                        class="reviews-card__img"
-                        src="./img/reviews-section/konstantyn-shymko.jpg"
-                        alt="Konstantyn Shymko"
-                      />
-                    </div>
-                  </figure>
-                </div>
               </div>
-              <div class="reviews-card reviews-card--hidden">
+              <div
+                class="reviews-card"
+                data-reviews-user="Konstantyn Shymko"
+                hidden
+              >
+                <p class="reviews-card__content reviews-card__comment">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Recusandae rem quia veritatis. Aliquid sunt facilis eum, nulla
+                  minima est ducimus ullam! Nostrum quae explicabo eius! Sunt
+                  deleniti distinctio repellat? Delectus. Saepe iure quos fugit
+                  illum quas neque ipsum, sapiente quidem in officia eaque,
+                  perferendis, voluptatem cupiditate sequi? Sint aliquid
+                  pariatur reiciendis iure perspiciatis harum, fugit quibusdam
+                </p>
+
+                <figure>
+                  <figcaption>
+                    <h3 class="reviews-card__user-name">Konstantyn Shymko</h3>
+                    <p
+                      class="reviews-card__content reviews-card__user-position"
+                    >
+                      Designer
+                    </p>
+                  </figcaption>
+                  <div class="reviews-card__img-box">
+                    <img
+                      class="reviews-card__img"
+                      src="./img/reviews-section/konstantyn-shymko.jpg"
+                      alt="Konstantyn Shymko"
+                    />
+                  </div>
+                </figure>
+              </div>
+
+              <div class="reviews-card" data-reviews-user="Hasan Ali" hidden>
                 <p class="reviews-card__content reviews-card__comment">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
                   laborum animi esse asperiores accusamus? Harum!
@@ -1205,7 +1246,11 @@
                   </div>
                 </figure>
               </div>
-              <div class="reviews-card reviews-card--hidden">
+              <div
+                class="reviews-card"
+                data-reviews-user="Anastasiya Ivanova"
+                hidden
+              >
                 <p class="reviews-card__content reviews-card__comment">
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                   Dolorem magni odit nemo quidem tempora ea et non, velit saepe,
@@ -1236,29 +1281,38 @@
                   class="reviews-slider__btn reviews-slider__btn-prev"
                   type="button"
                 ></button>
-                <ul class="list reviews-slider__list">
-                  <li class="reviews-slider__item reviews-slider__item--active">
+                <ul class="list reviews-slider__list" id="reviews-slider__list">
+                  <li
+                    class="reviews-slider__item reviews-slider__item--active"
+                    data-slider-user="Lesya Andrash"
+                  >
                     <img
                       class="reviews-slider__img"
                       src="./img/reviews-section/lesya-andrash.png"
                       alt="Lesya Andrash"
                     />
                   </li>
-                  <li class="reviews-slider__item">
+                  <li
+                    class="reviews-slider__item"
+                    data-slider-user="Konstantyn Shymko"
+                  >
                     <img
                       class="reviews-slider__img"
                       src="./img/reviews-section/konstantyn-shymko.png"
                       alt="Konstantyn Shymko"
                     />
                   </li>
-                  <li class="reviews-slider__item">
+                  <li class="reviews-slider__item" data-slider-user="Hasan Ali">
                     <img
                       class="reviews-slider__img"
                       src="./img/reviews-section/hasan-ali.png"
                       alt="Hasan Ali"
                     />
                   </li>
-                  <li class="reviews-slider__item">
+                  <li
+                    class="reviews-slider__item"
+                    data-slider-user="Anastasiya Ivanova"
+                  >
                     <img
                       class="reviews-slider__img"
                       src="./img/reviews-section/anastasiya-ivanova.png"
@@ -1747,5 +1801,6 @@
 
     <script src="/node_modules/masonry-layout/dist/masonry.pkgd.min.js"></script>
     <script src="./js/masonry.js"></script>
+     <script src="./js/site-reviews.js"></script>
   </body>
 </html>

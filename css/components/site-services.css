@@ -27,34 +27,34 @@
   cursor: pointer;
 }
 
-.services__item--click {
+.services__item--active {
   position: relative;
   color: var(--light-text-color);
   background-color: var(--green-dec-color);
+  user-select: none;
 }
 
-.services__item--click::before,
-.services__item--click::after {
+.services__item--active::before,
+.services__item--active::after {
   content: "";
   position: absolute;
   left: 44%;
   border: 10px solid transparent;
   border-top: 10px solid var(--green-dec-color);
 }
-.services__item--click::after {
+.services__item--active::after {
   border-top: 10px solid var(--green-dec-color);
   bottom: -19px;
 }
 
 .services__conten-box {
-  display: flex;
   font-weight: var(--light-fw);
   font-size: 14px;
   line-height: 24px;
 }
 
-.services__conten-box--hidden {
-  display: none;
+.services__conten-inner {
+  display: flex;
 }
 
 .services__photo {
