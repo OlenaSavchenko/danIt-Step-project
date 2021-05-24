@@ -1,62 +1,99 @@
 "use strict";
+const servicesList = document.getElementById("services__list");
+const reviewsSliderList = document.getElementById("reviews-slider__list");
+const reviewsSliderItems = Array.from(reviewsSliderList.children);
+const sliderPrevBtn = document.getElementById("reviews-slider__btn-prev");
+const sliderNextBtn = document.getElementById("reviews-slider__btn-next");
 
-const reviewsSliderArr = Array.from(
-  document.getElementById("reviews-slider__list").children
-);
-const reviewsCards = document.querySelectorAll(".reviews-card");
-const servicesTitlesArr = Array.from(
-  document.getElementById("services__list").children
-);
-const servicesCards = document.querySelectorAll(".services__conten-box");
-
-const handleItemClick = (
-  clickElemsArr,
-  hiddenContent,
-  activeClass,
-  clickDatasetAttr,
-  hiddenDatasetAttr
-) => {
-  clickElemsArr.forEach(
-    (elem) =>
-      (elem.onclick = () => {
-        setActiveClass(clickElemsArr, elem, activeClass);
-        showContent(
-          hiddenContent,
-          elem.dataset[clickDatasetAttr],
-          hiddenDatasetAttr
-        );
-      })
+const handleServicesListClick = (event) => {
+  let item = event.target.closest("li");
+  setActiveClass(
+    Array.from(servicesList.children),
+    item,
+    "services__item--active"
+  );
+  showContent(
+    document.querySelectorAll(".services__conten-box"),
+    item.dataset.servicesTitle,
+    "servicesContent"
   );
 };
 
-const setActiveClass = (items, elem, activeClass) => {
-  items.forEach((item) => {
-    item === elem
+const handleSliderClick = (event) => {
+  let item = event.target.closest("li");
+  if (!item || !reviewsSliderList.contains(item)) return;
+  setActiveClass(reviewsSliderItems, item, "reviews-slider__item--active");
+  showContent(
+    document.querySelectorAll(".reviews-card"),
+    item.dataset.sliderUser,
+    "reviewsUser"
+  );
+};
+
+const handleSliderPrevBtnClick = () => {
+  let index = findActiveItemIndex();
+  let activeItem;
+  index === 0
+    ? (activeItem = reviewsSliderItems[reviewsSliderItems.length - 1])
+    : (activeItem = reviewsSliderItems[index - 1]);
+
+  setActiveClass(
+    reviewsSliderItems,
+    activeItem,
+    "reviews-slider__item--active"
+  );
+  showContent(
+    document.querySelectorAll(".reviews-card"),
+    activeItem.dataset.sliderUser,
+    "reviewsUser"
+  );
+};
+
+const handleSliderNextBtnClick = () => {
+  let index = findActiveItemIndex();
+  let activeItem;
+  index === reviewsSliderItems.length - 1
+    ? (activeItem = reviewsSliderItems[0])
+    : (activeItem = reviewsSliderItems[index + 1]);
+
+  setActiveClass(
+    reviewsSliderItems,
+    activeItem,
+    "reviews-slider__item--active"
+  );
+  showContent(
+    document.querySelectorAll(".reviews-card"),
+    activeItem.dataset.sliderUser,
+    "reviewsUser"
+  );
+};
+
+const findActiveItemIndex = () => {
+  const item = reviewsSliderItems.find((item) =>
+    item.classList.contains("reviews-slider__item--active")
+  );
+  const index = reviewsSliderItems.indexOf(item);
+
+  return index;
+};
+
+const setActiveClass = (itemsArr, activeElem, activeClass) => {
+  itemsArr.forEach((item) => {
+    item === activeElem
       ? item.classList.add(activeClass)
       : item.classList.remove(activeClass);
   });
 };
 
-const showContent = (items, elem, attr) => {
-  items.forEach((item) => {
-    item.dataset[attr] === elem
+const showContent = (hiddenElemsArr, activeElemAttr, attr) => {
+  hiddenElemsArr.forEach((item) => {
+    item.dataset[attr] === activeElemAttr
       ? item.removeAttribute("hidden")
       : item.setAttribute("hidden", "hidden");
   });
 };
 
-handleItemClick(
-  reviewsSliderArr,
-  reviewsCards,
-  "reviews-slider__item--active",
-  "sliderUser",
-  "reviewsUser"
-);
-
-handleItemClick(
-  servicesTitlesArr,
-  servicesCards,
-  "services__item--active",
-  "servicesTitle",
-  "servicesContent"
-);
+servicesList.addEventListener("click", handleServicesListClick);
+reviewsSliderList.addEventListener("click", handleSliderClick);
+sliderPrevBtn.addEventListener("click", handleSliderPrevBtnClick);
+sliderNextBtn.addEventListener("click", handleSliderNextBtnClick);
