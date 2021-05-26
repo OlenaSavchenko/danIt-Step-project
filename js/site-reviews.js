@@ -8,6 +8,8 @@ const worksList = document.getElementById("works__list");
 const worksImgList = document.getElementById("works__photos-list");
 const worksLoadMoreBtn = document.getElementById("load-more__btn--works");
 const galleryLoadMoreBtn = document.getElementById("load-more__btn--gallery");
+let timerId;
+let galleryTimerId;
 // const galleryImagesBox = document.querySelector(".gallery");
 
 let worksBtnClickCount = 2;
@@ -99,19 +101,28 @@ const handleWorksLoadMoreBtn = () => {
   const fragment = document.createDocumentFragment();
   let k = 12;
   worksBtnClickCount === 1 ? (k += k) : k;
-  worksBtnClickCount--;
-  for (let i = 0; i < 12; i++) {
-    const li = document.createElement("li");
-    li.classList.add("works__photos-item");
-    li.innerHTML = `<div class="works__photos-container"> <img class="works__photos-img img" src="./img/works-section/works-section${k++}.jpg" alt="our works"/> <div class="works__overlay"> <ul class="list works__overlay-list"><li class="works__overlay-item"><a class="works__overlay-link works__overlay-link--chain" href="#"></a></li><li><a class="works__overlay-link works__overlay-link--elipse" href="#"></a></li></ul><p class="works__overlay-subtitle">graphic design</p><p class="works__overlay-content">graphic design</p></div></div>`;
-    fragment.append(li);
-  }
+  const loader = createLoader();
+  worksLoadMoreBtn.before(loader);
 
-  if (worksBtnClickCount === 0) {
-    worksLoadMoreBtn.removeEventListener("click", handleWorksLoadMoreBtn);
-    worksLoadMoreBtn.remove();
-  }
-  worksImgList.append(fragment);
+  timerId = setTimeout(() => {
+    loader.remove();
+    worksBtnClickCount--;
+    for (let i = 0; i < 12; i++) {
+      const li = document.createElement("li");
+      li.classList.add("works__photos-item");
+      li.innerHTML = `<div class="works__photos-container"> <img class="works__photos-img img" src="./img/works-section/works-section${k++}.jpg" alt="our works"/> <div class="works__overlay"> <ul class="list works__overlay-list"><li class="works__overlay-item"><a class="works__overlay-link works__overlay-link--chain" href="#"></a></li><li><a class="works__overlay-link works__overlay-link--elipse" href="#"></a></li></ul><p class="works__overlay-subtitle">graphic design</p><p class="works__overlay-content">graphic design</p></div></div>`;
+      fragment.append(li);
+    }
+
+    deleteLoadMoreBtn(
+      worksBtnClickCount,
+      worksLoadMoreBtn,
+      handleWorksLoadMoreBtn,
+      timerId
+    );
+
+    worksImgList.append(fragment);
+  }, 2000);
 };
 
 //  ----------gallery----------
@@ -119,12 +130,16 @@ const handleGalleryLoadMoreBtn = () => {
   const fragment = document.createDocumentFragment();
   let k = 10;
   galleryBtnClickCount === 1 ? (k += k) : k;
-  galleryBtnClickCount--;
+  const loader = createLoader();
+  galleryLoadMoreBtn.before(loader);
 
-  for (let i = 0; i < 10; i++) {
-    const div = document.createElement("div");
-    div.classList.add("gallery__img-box");
-    div.innerHTML = `<img
+  galleryTimerId = setTimeout(() => {
+    loader.remove();
+    galleryBtnClickCount--;
+    for (let i = 0; i < 10; i++) {
+      const div = document.createElement("div");
+      div.classList.add("gallery__img-box");
+      div.innerHTML = `<img
     class="gallery__img"
     src="./img/gallery-section/store.jpg"
     alt="store"
@@ -152,23 +167,18 @@ const handleGalleryLoadMoreBtn = () => {
   </div>
 </div>`;
 
-    fragment.append(div);
-  }
+      fragment.append(div);
+    }
 
-  if (galleryBtnClickCount === 0) {
-    galleryLoadMoreBtn.removeEventListener("click", handleWorksLoadMoreBtn);
-    galleryLoadMoreBtn.remove();
-  }
+    deleteLoadMoreBtn(
+      galleryBtnClickCount,
+      galleryLoadMoreBtn,
+      handleGalleryLoadMoreBtn,
+      galleryTimerId
+    );
 
-  galleryLoadMoreBtn.before(fragment);
-};
-
-const findActiveItemIndex = () => {
-  const item = reviewsSliderItems.find((item) =>
-    item.classList.contains("reviews-slider__item--active")
-  );
-  const index = reviewsSliderItems.indexOf(item);
-  return index;
+    galleryLoadMoreBtn.before(fragment);
+  }, 2000);
 };
 
 const setActiveClass = (itemsArr, activeElem, activeClass) => {
@@ -185,6 +195,35 @@ const showContent = (hiddenElemsArr, activeElemAttr, attr) => {
       ? item.removeAttribute("hidden")
       : item.setAttribute("hidden", "hidden");
   });
+};
+
+const findActiveItemIndex = () => {
+  const item = reviewsSliderItems.find((item) =>
+    item.classList.contains("reviews-slider__item--active")
+  );
+  const index = reviewsSliderItems.indexOf(item);
+  return index;
+};
+
+const createLoader = () => {
+  const box = document.createElement("div");
+  box.classList.add("loader-wrapper");
+  box.innerHTML = ` <div class="loader">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>`;
+  return box;
+};
+
+const deleteLoadMoreBtn = (count, btn, listener, timer) => {
+  if (count === 0) {
+    btn.removeEventListener("click", listener);
+    btn.remove();
+    clearTimeout(timer);
+  }
 };
 
 servicesList.addEventListener("click", handleServicesListClick);
