@@ -6,7 +6,7 @@
 .menu__container {
   display: flex;
   justify-content: space-between;
-  padding: 26px 0px;
+  padding: 27px 0px;
 }
 
 .menu__list {

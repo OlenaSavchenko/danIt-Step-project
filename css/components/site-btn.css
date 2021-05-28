@@ -1,7 +1,6 @@
 .btn {
-  border: none;
   cursor: pointer;
-  font-family: var(--ff);
+
   text-transform: uppercase;
   font-weight: var(--bold-fw);
   font-size: 15px;
@@ -11,31 +10,6 @@
   border-radius: 4px;
   box-shadow: 0 -5px 0 0 var(--light-text-color);
   transition: color 200ms linear;
-}
-
-.menu__btn::after {
-  content: "";
-  position: absolute;
-  display: none;
-  margin-top: 44px;
-  width: 100%;
-  height: 2px;
-  background-color: var(--green-dec-color);
-  transition: color 200ms linear;
-}
-
-.menu__btn:hover::after,
-.menu__btn:focus::after {
-  display: block;
-  transition: color 200ms linear;
-}
-
-.menu__btn {
-  position: relative;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  font-family: var(--ff);
 }
 
 .header__btn--explore {

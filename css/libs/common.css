@@ -17,6 +17,7 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+  border-style: none;
 }
 
 .container {
@@ -39,4 +40,22 @@ img {
 .outline:active,
 .outline:focus {
   outline: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.fade {
+  display: block;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
 }

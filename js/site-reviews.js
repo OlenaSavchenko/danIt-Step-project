@@ -1,91 +1,113 @@
 "use strict";
-const servicesList = document.getElementById("services__list");
-const reviewsSliderList = document.getElementById("reviews-slider__list");
-const reviewsSliderItems = Array.from(reviewsSliderList.children);
-const sliderPrevBtn = document.getElementById("reviews-slider__btn-prev");
-const sliderNextBtn = document.getElementById("reviews-slider__btn-next");
-const worksList = document.getElementById("works__list");
-const worksImgList = document.getElementById("works__photos-list");
-const worksLoadMoreBtn = document.getElementById("load-more__btn--works");
-const galleryLoadMoreBtn = document.getElementById("load-more__btn--gallery");
-let timerId;
-let galleryTimerId;
-// const galleryImagesBox = document.querySelector(".gallery");
 
-let worksBtnClickCount = 2;
-let galleryBtnClickCount = 2;
+const services = {
+  list: document.getElementById("services__list"),
+  items: Array.from(document.querySelectorAll(".services__item")),
+  content: document.querySelectorAll(".services__conten-box"),
+};
+
+const slider = {
+  list: document.getElementById("reviews-slider__list"),
+  items: Array.from(document.querySelectorAll(".reviews-slider__item")),
+  content: document.querySelectorAll(".reviews-card"),
+  prevBtn: document.getElementById("reviews-slider__btn-prev"),
+  nextBtn: document.getElementById("reviews-slider__btn-next"),
+  activeClass: "reviews-slider__item--active",
+};
+
+const works = {
+  list: document.getElementById("works__list"),
+  imgList: document.getElementById("works__photos-list"),
+  title: Array.from(document.querySelectorAll(".works__overlay-subtitle")),
+  loadMoreBtn: document.getElementById("load-more__btn--works"),
+  titlesArr: ["graphic design", "web design", "landing pages", "wordpress"],
+  timerId: 0,
+};
+
+const gallery = {
+  loadMoreBtn: document.getElementById("load-more__btn--gallery"),
+  container: document.querySelector(".grid"),
+  timerId: 0,
+};
+
+gallery.container.style.height = "942px";
+let btnClickCount = [0, 0];
 
 // ----------services section----------
-const handleServicesListClick = (event) => {
-  let item = event.target.closest("li");
-  setActiveClass(
-    Array.from(servicesList.children),
-    item,
-    "services__item--active"
-  );
-  showContent(
-    document.querySelectorAll(".services__conten-box"),
-    item.dataset.servicesTitle,
-    "servicesContent"
-  );
+const handleServicesListClick = (e) => {
+  let item = e.target.closest("li");
+  setActiveClass(services.items, item, "services__item--active");
+  showContent(services.content, item.dataset.servicesTitle, "servicesContent");
 };
 
 // ----------reviews section----------
-const handleSliderClick = (event) => {
-  let item = event.target.closest("li");
-  if (!item || !reviewsSliderList.contains(item)) return;
-  setActiveClass(reviewsSliderItems, item, "reviews-slider__item--active");
-  showContent(
-    document.querySelectorAll(".reviews-card"),
-    item.dataset.sliderUser,
-    "reviewsUser"
-  );
+const handleSliderClick = (e) => {
+  let item = e.target.closest("li");
+  if (!item) return;
+  setActiveClass(slider.items, item, slider.activeClass);
+  showContent(slider.content, item.dataset.sliderUser, "reviewsUser");
 };
 
 const handleSliderPrevBtnClick = () => {
   let index = findActiveItemIndex();
   let activeItem;
   index === 0
-    ? (activeItem = reviewsSliderItems[reviewsSliderItems.length - 1])
-    : (activeItem = reviewsSliderItems[index - 1]);
+    ? (activeItem = slider.items[slider.items.length - 1])
+    : (activeItem = slider.items[index - 1]);
 
-  setActiveClass(
-    reviewsSliderItems,
-    activeItem,
-    "reviews-slider__item--active"
-  );
-  showContent(
-    document.querySelectorAll(".reviews-card"),
-    activeItem.dataset.sliderUser,
-    "reviewsUser"
-  );
+  setActiveClass(slider.items, activeItem, slider.activeClass);
+  showContent(slider.content, activeItem.dataset.sliderUser, "reviewsUser");
 };
 
 const handleSliderNextBtnClick = () => {
   let index = findActiveItemIndex();
   let activeItem;
-  index === reviewsSliderItems.length - 1
-    ? (activeItem = reviewsSliderItems[0])
-    : (activeItem = reviewsSliderItems[index + 1]);
+  index === slider.items.length - 1
+    ? (activeItem = slider.items[0])
+    : (activeItem = slider.items[index + 1]);
 
-  setActiveClass(
-    reviewsSliderItems,
-    activeItem,
-    "reviews-slider__item--active"
+  setActiveClass(slider.items, activeItem, slider.activeClass);
+  showContent(slider.content, activeItem.dataset.sliderUser, "reviewsUser");
+};
+
+const findActiveItemIndex = () => {
+  const item = slider.items.find((item) =>
+    item.classList.contains(slider.activeClass)
   );
-  showContent(
-    document.querySelectorAll(".reviews-card"),
-    activeItem.dataset.sliderUser,
-    "reviewsUser"
-  );
+  const index = slider.items.indexOf(item);
+  return index;
 };
 // ----------works example section----------
-const handleWorksListClick = (event) => {
-  const item = event.target.closest("li");
-  const worksContent = Array.from(
-    document.querySelectorAll(".works__overlay-subtitle")
-  );
-  worksContent.forEach((el) => {
+const handleWorksListClick = (e) => {
+  const item = e.target.closest("li");
+  sortWorkListContent(item);
+};
+
+const handleWorksLoadMoreBtn = (e) => {
+  e.preventDefault();
+  let k = 12;
+  btnClickCount[0] === 1 ? (k += k) : k;
+  const loader = createLoader();
+  works.loadMoreBtn.before(loader);
+  // -----timer-----
+  works.timerId = setTimeout(() => {
+    loader.remove();
+    btnClickCount[0]++;
+    const fragment = createWorksImg(k);
+
+    deleteLoadMoreBtn(
+      btnClickCount[0],
+      works.loadMoreBtn,
+      handleWorksLoadMoreBtn,
+      works.timerId
+    );
+
+    works.imgList.append(fragment);
+  }, 2000);
+};
+
+const sortWorkListContent = (item) => {
+  works.title.forEach((el) => {
     if (
       el.textContent.toLowerCase() === item.textContent.toLowerCase() ||
       item.textContent.toLowerCase() === "all"
@@ -97,49 +119,59 @@ const handleWorksListClick = (event) => {
   });
 };
 
-const handleWorksLoadMoreBtn = () => {
+const createWorksImg = (k) => {
   const fragment = document.createDocumentFragment();
-  let k = 12;
-  worksBtnClickCount === 1 ? (k += k) : k;
-  const loader = createLoader();
-  worksLoadMoreBtn.before(loader);
+  for (let i = 0; i < 12; i++) {
+    const randomContent =
+      works.titlesArr[Math.floor(Math.random() * works.titlesArr.length)];
 
-  timerId = setTimeout(() => {
+    const li = document.createElement("li");
+    li.classList.add("works__photos-item");
+    li.innerHTML = `<div class="works__photos-container"> 
+    <img class="works__photos-img img" src="./img/works-section/works-section${k++}.jpg" alt="our works"/> 
+    <div class="works__overlay"> 
+    <ul class="list works__overlay-list">
+    <li class="works__overlay-item"> 
+    <a class="works__overlay-link works__overlay-link--chain" href="#"></a></li>
+    <li><a class="works__overlay-link works__overlay-link--elipse" href="#"></a></li>
+    </ul>
+    <p class="works__overlay-subtitle">${randomContent}</p>
+    <p class="works__overlay-content">${randomContent}</p>
+    </div></div>`;
+    fragment.append(li);
+  }
+  return fragment;
+};
+//  ----------gallery section----------
+const handleGalleryLoadMoreBtn = (e) => {
+  e.preventDefault();
+  let k = 10;
+  btnClickCount[1] === 1 ? (k += k) : k;
+  const loader = createLoader();
+  gallery.loadMoreBtn.before(loader);
+
+  gallery.timerId = setTimeout(() => {
     loader.remove();
-    worksBtnClickCount--;
-    for (let i = 0; i < 12; i++) {
-      const li = document.createElement("li");
-      li.classList.add("works__photos-item");
-      li.innerHTML = `<div class="works__photos-container"> <img class="works__photos-img img" src="./img/works-section/works-section${k++}.jpg" alt="our works"/> <div class="works__overlay"> <ul class="list works__overlay-list"><li class="works__overlay-item"><a class="works__overlay-link works__overlay-link--chain" href="#"></a></li><li><a class="works__overlay-link works__overlay-link--elipse" href="#"></a></li></ul><p class="works__overlay-subtitle">graphic design</p><p class="works__overlay-content">graphic design</p></div></div>`;
-      fragment.append(li);
-    }
+    btnClickCount[1]++;
+    const fragment = createGalleryImg();
 
     deleteLoadMoreBtn(
-      worksBtnClickCount,
-      worksLoadMoreBtn,
-      handleWorksLoadMoreBtn,
-      timerId
+      btnClickCount[1],
+      gallery.loadMoreBtn,
+      handleGalleryLoadMoreBtn,
+      gallery.timerId
     );
 
-    worksImgList.append(fragment);
+    gallery.loadMoreBtn.before(fragment);
   }, 2000);
 };
 
-//  ----------gallery----------
-const handleGalleryLoadMoreBtn = () => {
+const createGalleryImg = () => {
   const fragment = document.createDocumentFragment();
-  let k = 10;
-  galleryBtnClickCount === 1 ? (k += k) : k;
-  const loader = createLoader();
-  galleryLoadMoreBtn.before(loader);
-
-  galleryTimerId = setTimeout(() => {
-    loader.remove();
-    galleryBtnClickCount--;
-    for (let i = 0; i < 10; i++) {
-      const div = document.createElement("div");
-      div.classList.add("gallery__img-box");
-      div.innerHTML = `<img
+  for (let i = 0; i < 10; i++) {
+    const div = document.createElement("div");
+    div.classList.add("gallery__img-box");
+    div.innerHTML = `<img
     class="gallery__img"
     src="./img/gallery-section/store.jpg"
     alt="store"
@@ -167,20 +199,12 @@ const handleGalleryLoadMoreBtn = () => {
   </div>
 </div>`;
 
-      fragment.append(div);
-    }
-
-    deleteLoadMoreBtn(
-      galleryBtnClickCount,
-      galleryLoadMoreBtn,
-      handleGalleryLoadMoreBtn,
-      galleryTimerId
-    );
-
-    galleryLoadMoreBtn.before(fragment);
-  }, 2000);
+    fragment.append(div);
+  }
+  return fragment;
 };
 
+//  ----------common js----------
 const setActiveClass = (itemsArr, activeElem, activeClass) => {
   itemsArr.forEach((item) => {
     item === activeElem
@@ -191,18 +215,14 @@ const setActiveClass = (itemsArr, activeElem, activeClass) => {
 
 const showContent = (hiddenElemsArr, activeElemAttr, attr) => {
   hiddenElemsArr.forEach((item) => {
-    item.dataset[attr] === activeElemAttr
-      ? item.removeAttribute("hidden")
-      : item.setAttribute("hidden", "hidden");
+    if (item.dataset[attr] === activeElemAttr) {
+      item.classList.add("fade");
+      item.classList.remove("hidden");
+    } else {
+      item.classList.add("hidden");
+      item.classList.remove("fade");
+    }
   });
-};
-
-const findActiveItemIndex = () => {
-  const item = reviewsSliderItems.find((item) =>
-    item.classList.contains("reviews-slider__item--active")
-  );
-  const index = reviewsSliderItems.indexOf(item);
-  return index;
 };
 
 const createLoader = () => {
@@ -219,17 +239,18 @@ const createLoader = () => {
 };
 
 const deleteLoadMoreBtn = (count, btn, listener, timer) => {
-  if (count === 0) {
+  if (count === 2) {
     btn.removeEventListener("click", listener);
     btn.remove();
     clearTimeout(timer);
   }
 };
 
-servicesList.addEventListener("click", handleServicesListClick);
-reviewsSliderList.addEventListener("click", handleSliderClick);
-sliderPrevBtn.addEventListener("click", handleSliderPrevBtnClick);
-sliderNextBtn.addEventListener("click", handleSliderNextBtnClick);
-worksList.addEventListener("click", handleWorksListClick);
-worksLoadMoreBtn.addEventListener("click", handleWorksLoadMoreBtn);
-galleryLoadMoreBtn.addEventListener("click", handleGalleryLoadMoreBtn);
+//  ----------listeners----------
+services.list.addEventListener("click", handleServicesListClick);
+slider.list.addEventListener("click", handleSliderClick);
+slider.prevBtn.addEventListener("click", handleSliderPrevBtnClick);
+slider.nextBtn.addEventListener("click", handleSliderNextBtnClick);
+works.list.addEventListener("click", handleWorksListClick);
+works.loadMoreBtn.addEventListener("click", handleWorksLoadMoreBtn);
+gallery.loadMoreBtn.addEventListener("click", handleGalleryLoadMoreBtn);

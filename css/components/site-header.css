@@ -25,7 +25,7 @@
 }
 .header__subtitle {
   display: block;
-  margin-bottom: 22px;
+  margin-bottom: 12px;
   font-weight: var(--bold-fw);
   font-size: 78px;
   text-transform: uppercase;
@@ -38,7 +38,9 @@
   color: var(--light-grey-text-color);
 }
 .header__btn-box {
-  width: 364px;
+  width: 500px;
+  display: flex;
+  justify-content: center;
   margin: 0 auto;
-  padding-bottom: 244px;
+  padding-bottom: 231px;
 }

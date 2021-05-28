@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/normalize.css" />
+    <link rel="stylesheet" href="./css/libs/normalize.css" />
     <link rel="stylesheet" href="./css/style.css" />
     <title>Step Project-01</title>
   </head>
@@ -30,8 +30,8 @@
               <li><a href="#" class="link menu__link">work</a></li>
               <li><a href="#" class="link menu__link">testimonial</a></li>
               <li>
-                <button class="outline menu__btn" type="button">
-                  <svg
+                <li><a href="#" class="link menu__link">
+                     <svg
                     class="menu__svg"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="-1 0 136 136.21852"
@@ -41,8 +41,8 @@
                       style="stroke: none; fill-rule: nonzero"
                     />
                   </svg>
-                </button>
-              </li>
+                </a></li>
+                            </li>
             </ul>
           </div>
         </div>
@@ -61,13 +61,9 @@
           </p>
         </div>
         <div class="header__btn-box">
-          <btn class="btn outline header__btn--explore" type="button">
-            explore now
-          </btn>
-          <btn class="btn outline header__btn--purchase" type="button">
-            purchase now
-          </btn>
-        </div>
+          <a href="#" class="link btn header__btn--explore">explore now</a>
+          <a href="#" class="link btn header__btn--purchase">purchase now</a>
+               </div>
       </section>
     </header>
 
@@ -154,9 +150,9 @@
           </div>
         </div>
         <div
-          class="services__conten-box"
+          class="services__conten-box hidden"
           data-services-content="Graphic Design"
-          hidden
+          
         >
           <div class="services__conten-inner">
             <img
@@ -175,9 +171,9 @@
           </div>
         </div>
         <div
-          class="services__conten-box"
+          class="services__conten-box hidden"
           data-services-content="Online Support"
-          hidden
+          
         >
           <div class="services__conten-inner">
             <img
@@ -196,9 +192,9 @@
           </div>
         </div>
         <div
-          class="services__conten-box"
+          class="services__conten-box hidden"
           data-services-content="App Design"
-          hidden
+          
         >
           <div class="services__conten-inner">
             <img
@@ -217,9 +213,9 @@
           </div>
         </div>
         <div
-          class="services__conten-box"
+          class="services__conten-box hidden"
           data-services-content="Online Marketing"
-          hidden
+          
         >
           <div class="services__conten-inner">
             <img
@@ -236,9 +232,9 @@
           </div>
         </div>
         <div
-          class="services__conten-box"
+          class="services__conten-box hidden"
           data-services-content="Seo Service"
-          hidden
+          
         >
           <div class="services__conten-inner">
             <img
@@ -267,9 +263,7 @@
                 Smooth reliable, responsive ready, perfect portfolio, unique
                 blog layout and many many options for you
               </p>
-              <btn class="btn outline install__btn" type="button">
-                purchase now
-              </btn>
+             <a href="#" class="link btn install__btn"> purchase now</a>
             </div>
           </div>
         </div>
@@ -625,19 +619,12 @@
             </li>
           </ul>
           <div class="load-more__box">
-            <btn
-              class="btn outline load-more__btn"
-              id="load-more__btn--works"
-              type="button"
-            >
-              <object
-                type="image/svg+xml"
-                data="./img/svg/load-more.svg"
-                class="load-more__svg"
-              ></object>
-
-              Load More
-            </btn>
+            <a href="#" class="link btn load-more__btn"
+            id="load-more__btn--works">   <object
+            type="image/svg+xml"
+            data="./img/svg/load-more.svg"
+            class="load-more__svg"
+          ></object> Load More</a>
           </div>
         </div>
       </section>
@@ -648,7 +635,7 @@
           <ul class="list news__list">
             <li class="news__item">
               <a class="link" href="#">
-                <figure>
+                <figure class="news__post">
                   <div class="news-card">
                     <img
                       class="news-card__photo"
@@ -662,14 +649,14 @@
                   </div>
                   <figcaption class="news__heading">
                     <h3 class="news__title">Amazing Blog Post</h3>
-                    <p class="news__content">By admin | 2 comment</p>
+                    <p class="news__content"> <span>By admin</span> <span>2 comment</span></p>
                   </figcaption>
                 </figure>
               </a>
             </li>
             <li class="news__item">
               <a class="link" href="#">
-                <figure>
+                <figure class="news__post">
                   <div class="news-card">
                     <img
                       class="news-card__photo"
@@ -683,14 +670,15 @@
                   </div>
                   <figcaption class="news__heading">
                     <h3 class="news__title">Amazing Blog Post</h3>
-                    <p class="news__content">By admin | 2 comment</p>
+                    <p class="news__content">
+                      <span>By admin</span> <span>2 comment</span></p>
                   </figcaption>
                 </figure>
               </a>
             </li>
             <li class="news__item">
               <a class="link" href="#">
-                <figure>
+                <figure class="news__post">
                   <div class="news-card">
                     <img
                       class="news-card__photo"
@@ -704,14 +692,14 @@
                   </div>
                   <figcaption class="news__heading">
                     <h3 class="news__title">Amazing Blog Post</h3>
-                    <p class="news__content">By admin | 2 comment</p>
+                    <p class="news__content"> <span>By admin</span> <span>2 comment</span></p>
                   </figcaption>
                 </figure>
               </a>
             </li>
             <li class="news__item">
               <a class="link" href="#">
-                <figure>
+                <figure class="news__post">
                   <div class="news-card">
                     <img
                       class="news-card__photo"
@@ -725,14 +713,14 @@
                   </div>
                   <figcaption class="news__heading">
                     <h3 class="news__title">Amazing Blog Post</h3>
-                    <p class="news__content">By admin | 2 comment</p>
+                    <p class="news__content"> <span>By admin</span> <span>2 comment</span></p>
                   </figcaption>
                 </figure>
               </a>
             </li>
             <li class="news__item">
               <a class="link" href="#">
-                <figure>
+                <figure class="news__post">
                   <div class="news-card">
                     <img
                       class="news-card__photo"
@@ -746,14 +734,14 @@
                   </div>
                   <figcaption class="news__heading">
                     <h3 class="news__title">Amazing Blog Post</h3>
-                    <p class="news__content">By admin | 2 comment</p>
+                    <p class="news__content"> <span>By admin</span> <span>2 comment</span></p>
                   </figcaption>
                 </figure>
               </a>
             </li>
             <li class="news__item">
               <a class="link" href="#">
-                <figure>
+                <figure class="news__post">
                   <div class="news-card">
                     <img
                       class="news-card__photo"
@@ -767,14 +755,14 @@
                   </div>
                   <figcaption class="news__heading">
                     <h3 class="news__title">Amazing Blog Post</h3>
-                    <p class="news__content">By admin | 2 comment</p>
+                    <p class="news__content"> <span>By admin</span> <span>2 comment</span></p>
                   </figcaption>
                 </figure>
               </a>
             </li>
             <li class="news__item">
               <a class="link" href="#">
-                <figure>
+                <figure class="news__post">
                   <div class="news-card">
                     <img
                       class="news-card__photo"
@@ -788,14 +776,14 @@
                   </div>
                   <figcaption class="news__heading">
                     <h3 class="news__title">Amazing Blog Post</h3>
-                    <p class="news__content">By admin | 2 comment</p>
+                    <p class="news__content"> <span>By admin</span> <span>2 comment</span></p>
                   </figcaption>
                 </figure>
               </a>
             </li>
             <li class="news__item">
               <a class="link" href="#">
-                <figure>
+                <figure class="news__post">
                   <div class="news-card">
                     <img
                       class="news-card__photo"
@@ -809,7 +797,7 @@
                   </div>
                   <figcaption class="news__heading">
                     <h3 class="news__title">Amazing Blog Post</h3>
-                    <p class="news__content">By admin | 2 comment</p>
+                    <p class="news__content"> <span>By admin</span> <span>2 comment</span></p>
                   </figcaption>
                 </figure>
               </a>
@@ -858,9 +846,9 @@
                 </figure>
               </div>
               <div
-                class="reviews-card"
+                class="reviews-card hidden"
                 data-reviews-user="Konstantyn Shymko"
-                hidden
+                
               >
                 <p class="reviews-card__content reviews-card__comment">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -891,7 +879,7 @@
                 </figure>
               </div>
 
-              <div class="reviews-card" data-reviews-user="Hasan Ali" hidden>
+              <div class="reviews-card hidden" data-reviews-user="Hasan Ali">
                 <p class="reviews-card__content reviews-card__comment">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
                   laborum animi esse asperiores accusamus? Harum!
@@ -915,9 +903,9 @@
                 </figure>
               </div>
               <div
-                class="reviews-card"
+                class="reviews-card hidden"
                 data-reviews-user="Anastasiya Ivanova"
-                hidden
+                
               >
                 <p class="reviews-card__content reviews-card__comment">
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit.
@@ -1520,18 +1508,12 @@
           </div>
         </div>
         <div class="load-more__box">
-          <btn
-            class="btn outline load-more__btn"
-            id="load-more__btn--gallery"
-            type="button"
-          >
-            <object
-              type="image/svg+xml"
-              data="./img/svg/load-more.svg"
-              class="load-more__svg"
-            ></object>
-            Load More
-          </btn>
+                  <a href="#" class="link btn load-more__btn"
+          id="load-more__btn--gallery">   <object
+          type="image/svg+xml"
+          data="./img/svg/load-more.svg"
+          class="load-more__svg"
+        ></object> Load More</a>
         </div>
       </section>
     </main>
