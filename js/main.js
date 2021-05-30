@@ -18,7 +18,6 @@ const slider = {
 const works = {
   list: document.getElementById("works__list"),
   imgList: document.getElementById("works__photos-list"),
-  title: Array.from(document.querySelectorAll(".works__overlay-subtitle")),
   loadMoreBtn: document.getElementById("load-more__btn--works"),
   titlesArr: ["graphic design", "web design", "landing pages", "wordpress"],
   timerId: 0,
@@ -27,10 +26,22 @@ const works = {
 const gallery = {
   loadMoreBtn: document.getElementById("load-more__btn--gallery"),
   container: document.querySelector(".grid"),
+  firstItem: document.querySelector(".grid-item--first"),
+  secondItem: document.querySelector(".grid-item--second"),
+  thirdItem: document.querySelector(".grid-item--third"),
+  imgArr: [
+    "app-design.jpg",
+    "graphic-design.jpg",
+    "online-marketing.jpg",
+    "online-support.jpg",
+    "seo-service.jpg",
+    "web-design.jpg",
+  ],
   timerId: 0,
 };
+let containerHeight = 942;
+gallery.container.style.height = `${containerHeight}px`;
 
-gallery.container.style.height = "942px";
 let btnClickCount = [0, 0];
 
 // ----------services section----------
@@ -80,7 +91,8 @@ const findActiveItemIndex = () => {
 // ----------works example section----------
 const handleWorksListClick = (e) => {
   const item = e.target.closest("li");
-  sortWorkListContent(item);
+  setActiveClass(Array.from(works.list.children), item, "selected");
+  sortWorksListContent(item);
 };
 
 const handleWorksLoadMoreBtn = (e) => {
@@ -88,35 +100,24 @@ const handleWorksLoadMoreBtn = (e) => {
   let k = 12;
   btnClickCount[0] === 1 ? (k += k) : k;
   const loader = createLoader();
+  const item = document.querySelector(".selected");
   works.loadMoreBtn.before(loader);
-  // -----timer-----
+
   works.timerId = setTimeout(() => {
     loader.remove();
     btnClickCount[0]++;
     const fragment = createWorksImg(k);
-
+    works.imgList.append(fragment);
+    if (item) {
+      sortWorksListContent(item);
+    }
     deleteLoadMoreBtn(
       btnClickCount[0],
       works.loadMoreBtn,
       handleWorksLoadMoreBtn,
       works.timerId
     );
-
-    works.imgList.append(fragment);
   }, 2000);
-};
-
-const sortWorkListContent = (item) => {
-  works.title.forEach((el) => {
-    if (
-      el.textContent.toLowerCase() === item.textContent.toLowerCase() ||
-      item.textContent.toLowerCase() === "all"
-    ) {
-      el.closest("li").removeAttribute("hidden");
-    } else {
-      el.closest("li").setAttribute("hidden", "hidden");
-    }
-  });
 };
 
 const createWorksImg = (k) => {
@@ -142,6 +143,23 @@ const createWorksImg = (k) => {
   }
   return fragment;
 };
+
+const sortWorksListContent = (item) => {
+  const worksrItemsArr = Array.from(
+    document.querySelectorAll(".works__overlay-content")
+  );
+  worksrItemsArr.forEach((el) => {
+    if (
+      el.textContent.toLowerCase() === item.textContent.toLowerCase() ||
+      item.textContent.toLowerCase() === "all"
+    ) {
+      el.closest("li").removeAttribute("hidden");
+    } else {
+      el.closest("li").setAttribute("hidden", "hidden");
+    }
+  });
+};
+
 //  ----------gallery section----------
 const handleGalleryLoadMoreBtn = (e) => {
   e.preventDefault();
@@ -153,8 +171,6 @@ const handleGalleryLoadMoreBtn = (e) => {
   gallery.timerId = setTimeout(() => {
     loader.remove();
     btnClickCount[1]++;
-    const fragment = createGalleryImg();
-
     deleteLoadMoreBtn(
       btnClickCount[1],
       gallery.loadMoreBtn,
@@ -162,18 +178,23 @@ const handleGalleryLoadMoreBtn = (e) => {
       gallery.timerId
     );
 
-    gallery.loadMoreBtn.before(fragment);
+    // gallery.container.style.height = `${containerHeight += containerHeight}px`;
+    // console.log(gallery.container.style.height);
+
+    gallery.firstItem.append(createGalleryImg());
+    gallery.secondItem.append(createGalleryImg());
+    gallery.thirdItem.append(createGalleryImg());
   }, 2000);
 };
 
 const createGalleryImg = () => {
   const fragment = document.createDocumentFragment();
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 3; i++) {
     const div = document.createElement("div");
     div.classList.add("gallery__img-box");
     div.innerHTML = `<img
     class="gallery__img"
-    src="./img/gallery-section/store.jpg"
+    src="./img/gallery-section/${gallery.imgArr[i]}"
     alt="store"
   />
   <div class="gallery__overlay">
