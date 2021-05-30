@@ -1,9 +1,9 @@
 "use strict";
 
-const box = document.querySelector(".grid");
-const msnry = new Masonry(box, {
+const msnry = new Masonry(document.querySelector(".grid"), {
   columnWidth: ".grid-sizer",
   itemSelector: ".grid-item",
+
   percentPosition: true,
-  horizontalOrder: true,
+  // horizontalOrder: true,
 });

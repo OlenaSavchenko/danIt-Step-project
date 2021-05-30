@@ -2,6 +2,9 @@ html {
   box-sizing: border-box;
 }
 
+.body-wrapper {
+  font-family: var(--ff);
+}
 *,
 *::before,
 *::after {
@@ -22,8 +25,7 @@ img {
 
 .container {
   margin: 0 auto;
-  width: 1160px;
-  font-family: var(--ff);
+  max-width: 1160px;
 }
 
 .link {

@@ -20,7 +20,7 @@ const works = {
   imgList: document.getElementById("works__photos-list"),
   loadMoreBtn: document.getElementById("load-more__btn--works"),
   titlesArr: ["graphic design", "web design", "landing pages", "wordpress"],
-  timerId: 0,
+  timerId: null,
 };
 
 const gallery = {
@@ -37,10 +37,11 @@ const gallery = {
     "seo-service.jpg",
     "web-design.jpg",
   ],
-  timerId: 0,
+  timerId: null,
 };
-let containerHeight = 942;
-gallery.container.style.height = `${containerHeight}px`;
+
+console.log(gallery.container.style.height);
+// console.log(gallery.container.style.minHeight.split(""));
 
 let btnClickCount = [0, 0];
 
@@ -123,9 +124,32 @@ const handleWorksLoadMoreBtn = (e) => {
 const createWorksImg = (k) => {
   const fragment = document.createDocumentFragment();
   for (let i = 0; i < 12; i++) {
-    const randomContent =
-      works.titlesArr[Math.floor(Math.random() * works.titlesArr.length)];
+    let content;
+    switch (i) {
+      case 0:
+      case 1:
+      case 2:
+        content = works.titlesArr[0];
+        break;
 
+      case 3:
+      case 4:
+      case 5:
+        content = works.titlesArr[1];
+        break;
+
+      case 6:
+      case 7:
+      case 8:
+        content = works.titlesArr[2];
+        break;
+
+      case 9:
+      case 10:
+      case 11:
+        content = works.titlesArr[3];
+        break;
+    }
     const li = document.createElement("li");
     li.classList.add("works__photos-item");
     li.innerHTML = `<div class="works__photos-container"> 
@@ -136,8 +160,8 @@ const createWorksImg = (k) => {
     <a class="works__overlay-link works__overlay-link--chain" href="#"></a></li>
     <li><a class="works__overlay-link works__overlay-link--elipse" href="#"></a></li>
     </ul>
-    <p class="works__overlay-subtitle">${randomContent}</p>
-    <p class="works__overlay-content">${randomContent}</p>
+    <p class="works__overlay-subtitle">creative design</p>
+    <p class="works__overlay-content">${content}</p>
     </div></div>`;
     fragment.append(li);
   }
