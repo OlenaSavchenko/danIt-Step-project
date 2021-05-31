@@ -26,9 +26,6 @@ const works = {
 const gallery = {
   loadMoreBtn: document.getElementById("load-more__btn--gallery"),
   container: document.querySelector(".grid"),
-  firstItem: document.querySelector(".grid-item--first"),
-  secondItem: document.querySelector(".grid-item--second"),
-  thirdItem: document.querySelector(".grid-item--third"),
   imgArr: [
     "app-design.jpg",
     "graphic-design.jpg",
@@ -39,9 +36,6 @@ const gallery = {
   ],
   timerId: null,
 };
-
-console.log(gallery.container.style.height);
-// console.log(gallery.container.style.minHeight.split(""));
 
 let btnClickCount = [0, 0];
 
@@ -185,6 +179,8 @@ const sortWorksListContent = (item) => {
 };
 
 //  ----------gallery section----------
+
+// need to review!
 const handleGalleryLoadMoreBtn = (e) => {
   e.preventDefault();
   let k = 10;
@@ -201,13 +197,7 @@ const handleGalleryLoadMoreBtn = (e) => {
       handleGalleryLoadMoreBtn,
       gallery.timerId
     );
-
-    // gallery.container.style.height = `${containerHeight += containerHeight}px`;
-    // console.log(gallery.container.style.height);
-
-    gallery.firstItem.append(createGalleryImg());
-    gallery.secondItem.append(createGalleryImg());
-    gallery.thirdItem.append(createGalleryImg());
+    gallery.container.append(createGalleryImg());
   }, 2000);
 };
 
@@ -215,8 +205,8 @@ const createGalleryImg = () => {
   const fragment = document.createDocumentFragment();
   for (let i = 0; i < 3; i++) {
     const div = document.createElement("div");
-    div.classList.add("gallery__img-box");
-    div.innerHTML = `<img
+    div.classList.add("grid-item");
+    div.innerHTML = `<div class="gallery__img-box"><img
     class="gallery__img"
     src="./img/gallery-section/${gallery.imgArr[i]}"
     alt="store"
@@ -242,8 +232,8 @@ const createGalleryImg = () => {
       </li>
     </ul>
   </div>
+</div>
 </div>`;
-
     fragment.append(div);
   }
   return fragment;
