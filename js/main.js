@@ -26,14 +26,6 @@ const works = {
 const gallery = {
   loadMoreBtn: document.getElementById("load-more__btn--gallery"),
   container: document.querySelector(".grid"),
-  imgArr: [
-    "app-design.jpg",
-    "graphic-design.jpg",
-    "online-marketing.jpg",
-    "online-support.jpg",
-    "seo-service.jpg",
-    "web-design.jpg",
-  ],
   timerId: null,
 };
 
@@ -42,6 +34,7 @@ let btnClickCount = [0, 0];
 // ----------services section----------
 const handleServicesListClick = (e) => {
   let item = e.target.closest("li");
+  if (!item) return;
   setActiveClass(services.items, item, "services__item--active");
   showContent(services.content, item.dataset.servicesTitle, "servicesContent");
 };
@@ -86,6 +79,7 @@ const findActiveItemIndex = () => {
 // ----------works example section----------
 const handleWorksListClick = (e) => {
   const item = e.target.closest("li");
+  if (!item) return;
   setActiveClass(Array.from(works.list.children), item, "selected");
   sortWorksListContent(item);
 };
@@ -180,16 +174,14 @@ const sortWorksListContent = (item) => {
 
 //  ----------gallery section----------
 
-// need to review!
 const handleGalleryLoadMoreBtn = (e) => {
   e.preventDefault();
-  let k = 10;
-  btnClickCount[1] === 1 ? (k += k) : k;
   const loader = createLoader();
   gallery.loadMoreBtn.before(loader);
 
   gallery.timerId = setTimeout(() => {
     loader.remove();
+    showGalleryImg();
     btnClickCount[1]++;
     deleteLoadMoreBtn(
       btnClickCount[1],
@@ -197,46 +189,16 @@ const handleGalleryLoadMoreBtn = (e) => {
       handleGalleryLoadMoreBtn,
       gallery.timerId
     );
-    gallery.container.append(createGalleryImg());
   }, 2000);
 };
 
-const createGalleryImg = () => {
-  const fragment = document.createDocumentFragment();
-  for (let i = 0; i < 3; i++) {
-    const div = document.createElement("div");
-    div.classList.add("grid-item");
-    div.innerHTML = `<div class="gallery__img-box"><img
-    class="gallery__img"
-    src="./img/gallery-section/${gallery.imgArr[i]}"
-    alt="store"
-  />
-  <div class="gallery__overlay">
-    <ul class="list gallery__overlay-list">
-      <li class="gallery__overlay-item">
-        <a
-          class="
-            gallery__overlay-link gallery__overlay-link--resize
-          "
-          href="#"
-        >
-        </a>
-      </li>
-      <li>
-        <a
-          class="
-            gallery__overlay-link gallery__overlay-link--search
-          "
-          href="#"
-        ></a>
-      </li>
-    </ul>
-  </div>
-</div>
-</div>`;
-    fragment.append(div);
-  }
-  return fragment;
+const showGalleryImg = () => {
+  const imgArr = Array.from(document.querySelectorAll(".hidden-img"));
+  imgArr.forEach((img, i) => {
+    if (i <= 5) {
+      img.className = "gallery__img-box";
+    }
+  });
 };
 
 //  ----------common js----------

@@ -65,3 +65,7 @@
   background: no-repeat center var(--gallery-bc-link)
     url(../../img/svg/gallery-search.svg);
 }
+
+.hidden-img {
+  display: none;
+}
