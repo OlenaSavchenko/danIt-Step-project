@@ -1,6 +1,5 @@
 .btn {
   cursor: pointer;
-
   text-transform: uppercase;
   font-weight: var(--bold-fw);
   font-size: 15px;
@@ -9,7 +8,6 @@
   padding: 16px 17px;
   border-radius: 4px;
   box-shadow: 0 -5px 0 0 var(--light-text-color);
-  transition: color 200ms linear;
 }
 
 .header__btn--explore {
@@ -35,6 +33,7 @@
   width: 31px;
   border: 1px solid var(--reviews-grey-text-color);
   cursor: pointer;
+  transition: background-color 200ms linear;
 }
 .reviews-slider__btn-prev {
   background: no-repeat center url(../../img/svg/left-arrow.svg);
@@ -48,17 +47,15 @@
 .reviews-slider__btn:focus {
   border: 1px solid var(--light-text-color);
   background-color: var(--green-dec-color);
-  transition: color 200ms linear;
+  transition: background-color 200ms linear;
 }
 
 .reviews-slider__btn-prev:hover,
 .reviews-slider__btn-prev:focus {
   background-image: url(../../img/svg/left-arrow-hover.svg);
-  transition: color 200ms linear;
 }
 
 .reviews-slider__btn-next:hover,
 .reviews-slider__btn-next:focus {
   background-image: url(../../img/svg/right-arrow-hover.svg);
-  transition: color 200ms linear;
 }

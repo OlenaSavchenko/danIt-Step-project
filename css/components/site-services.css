@@ -18,12 +18,13 @@
   font-size: 16px;
   line-height: 39px;
   color: var(--middle-grey-text-color);
+  transition: border 200ms linear;
 }
 
 .services__item:hover,
 .services__item:focus {
   border: 1px solid var(--green-dec-color);
-  transition: color 200ms linear;
+  transition: border 200ms linear;
   cursor: pointer;
 }
 

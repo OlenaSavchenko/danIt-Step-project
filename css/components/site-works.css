@@ -18,7 +18,7 @@
   font-size: 14px;
   line-height: 42px;
   color: var(--middle-grey-text-color);
-  transition: color 400ms linear;
+  transition: border 200ms linear;
 }
 .works__item:first-child {
   padding: 14px 29px;
@@ -27,8 +27,8 @@
 .works__item:hover,
 .works__item:focus {
   border: 1px solid var(--green-dec-color);
-  transition: color 200ms linear;
   cursor: pointer;
+  transition: border 200ms linear;
 }
 
 .works__photos-list {
@@ -56,14 +56,15 @@
   bottom: 0;
   width: 100%;
   height: 100%;
-  visibility: hidden;
+  opacity: 0;
   background-color: var(--works-bc-color);
   border-top: 1px solid var(--green-dec-color);
+  transition: opacity 300ms linear;
 }
 
 .works__photos-item:hover .works__overlay {
-  visibility: visible;
-  transition: background-color 0.2s linear, background-image 0.2s linear;
+  opacity: 1;
+  transition: opacity 300ms linear;
 }
 .works__overlay-list {
   padding-top: 48px;

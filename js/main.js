@@ -2,13 +2,13 @@
 
 const services = {
   list: document.getElementById("services__list"),
-  items: Array.from(document.querySelectorAll(".services__item")),
+  items: [...document.querySelectorAll(".services__item")],
   content: document.querySelectorAll(".services__conten-box"),
 };
 
 const slider = {
   list: document.getElementById("reviews-slider__list"),
-  items: Array.from(document.querySelectorAll(".reviews-slider__item")),
+  items: [...document.querySelectorAll(".reviews-slider__item")],
   content: document.querySelectorAll(".reviews-card"),
   prevBtn: document.getElementById("reviews-slider__btn-prev"),
   nextBtn: document.getElementById("reviews-slider__btn-next"),
@@ -80,14 +80,14 @@ const findActiveItemIndex = () => {
 const handleWorksListClick = (e) => {
   const item = e.target.closest("li");
   if (!item) return;
-  setActiveClass(Array.from(works.list.children), item, "selected");
+  setActiveClass([...works.list.children], item, "selected");
   sortWorksListContent(item);
 };
 
 const handleWorksLoadMoreBtn = (e) => {
   e.preventDefault();
-  let k = 12;
-  btnClickCount[0] === 1 ? (k += k) : k;
+  let imgIndex = 12;
+  btnClickCount[0] === 1 ? (imgIndex += imgIndex) : imgIndex;
   const loader = createLoader();
   const item = document.querySelector(".selected");
   works.loadMoreBtn.before(loader);
@@ -95,7 +95,7 @@ const handleWorksLoadMoreBtn = (e) => {
   works.timerId = setTimeout(() => {
     loader.remove();
     btnClickCount[0]++;
-    const fragment = createWorksImg(k);
+    const fragment = createWorksImg(imgIndex);
     works.imgList.append(fragment);
     if (item) {
       sortWorksListContent(item);
@@ -109,7 +109,7 @@ const handleWorksLoadMoreBtn = (e) => {
   }, 2000);
 };
 
-const createWorksImg = (k) => {
+const createWorksImg = (imgIndex) => {
   const fragment = document.createDocumentFragment();
   for (let i = 0; i < 12; i++) {
     let content;
@@ -141,7 +141,7 @@ const createWorksImg = (k) => {
     const li = document.createElement("li");
     li.classList.add("works__photos-item");
     li.innerHTML = `<div class="works__photos-container"> 
-    <img class="works__photos-img img" src="./img/works-section/works-section${k++}.jpg" alt="our works"/> 
+    <img class="works__photos-img img" src="./img/works-section/works-section${imgIndex++}.jpg" alt="our works"/> 
     <div class="works__overlay"> 
     <ul class="list works__overlay-list">
     <li class="works__overlay-item"> 
@@ -157,9 +157,9 @@ const createWorksImg = (k) => {
 };
 
 const sortWorksListContent = (item) => {
-  const worksrItemsArr = Array.from(
-    document.querySelectorAll(".works__overlay-content")
-  );
+  const worksrItemsArr = [
+    ...document.querySelectorAll(".works__overlay-content"),
+  ];
   worksrItemsArr.forEach((el) => {
     if (
       el.textContent.toLowerCase() === item.textContent.toLowerCase() ||
@@ -193,10 +193,10 @@ const handleGalleryLoadMoreBtn = (e) => {
 };
 
 const showGalleryImg = () => {
-  const imgArr = Array.from(document.querySelectorAll(".hidden-img"));
+  const imgArr = [...document.querySelectorAll(".hidden-img")];
   imgArr.forEach((img, i) => {
     if (i <= 5) {
-      img.className = "gallery__img-box";
+      img.className = "gallery__img-box fade";
     }
   });
 };
