@@ -191,6 +191,7 @@ const handleGalleryLoadMoreBtn = (e) => {
     );
   }, 2000);
 };
+let msnry;
 
 const showGalleryImg = () => {
   const imgArr = [...document.querySelectorAll(".hidden-img")];
@@ -245,7 +246,6 @@ const deleteLoadMoreBtn = (count, btn, listener, timer) => {
   }
 };
 
-let msnry;
 const startMasonry = () => {
   imagesLoaded(document.querySelector(".grid"), function () {
     msnry = new Masonry(document.querySelector(".grid"), {
