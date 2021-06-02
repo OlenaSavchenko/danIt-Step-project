@@ -6,7 +6,7 @@
   align-items: center;
   font-weight: var(--light-fw);
   font-size: 14px;
-  line-height: 26px;
+  line-height: 25px;
   color: var(--footer-text-color);
 }
 .footer__container {

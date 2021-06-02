@@ -12,7 +12,7 @@
   position: relative;
   width: 263px;
   margin-right: 35px;
-  margin-bottom: 44px;
+  margin-bottom: 50px;
 }
 
 .news__item:nth-child(4n) {
@@ -24,7 +24,7 @@
 }
 
 .news-card {
-  margin-bottom: 4px;
+  margin-bottom: 8px;
 }
 .news-card__photo {
   width: 100%;
@@ -55,7 +55,7 @@
 
 .news__heading {
   font-size: 14px;
-  line-height: 39px;
+  line-height: 30px;
   color: var(--news-title-text-color);
 }
 

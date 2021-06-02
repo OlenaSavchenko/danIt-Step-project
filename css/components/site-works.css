@@ -1,6 +1,6 @@
 .works {
   margin-bottom: 82px;
-  padding: 96px 0 100px;
+  padding: 96px 0 115px;
   background-color: var(--works-bc-color);
 }
 
@@ -16,7 +16,7 @@
   border: 1px solid var(--light-grey-text-color);
   font-weight: var(--normal-fw);
   font-size: 14px;
-  line-height: 42px;
+  line-height: 30px;
   color: var(--middle-grey-text-color);
   transition: border 200ms linear;
 }
@@ -35,7 +35,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  margin-bottom: 70px;
+  margin-bottom: 88px;
 }
 .works__photos-item {
   width: 25%;

@@ -1,12 +1,13 @@
 .services {
   margin-bottom: 90px;
+  padding-left: 7px;
 }
 
 .services__list {
   display: flex;
   justify-content: start;
   text-align: center;
-  margin-bottom: 28px;
+  margin-bottom: 23px;
 }
 
 .services__item {
@@ -16,7 +17,7 @@
   border: 1px solid var(--light-grey-text-color);
   font-weight: var(--normal-fw);
   font-size: 16px;
-  line-height: 39px;
+  line-height: 38px;
   color: var(--middle-grey-text-color);
   transition: border 200ms linear;
 }
@@ -60,4 +61,5 @@
 
 .services__photo {
   margin-right: 15px;
+  height: 139px;
 }

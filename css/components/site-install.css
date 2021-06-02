@@ -12,7 +12,7 @@
 
 .install__container {
   text-align: center;
-  padding: 126px 0;
+  padding: 126px 0 146px;
 }
 
 .install__title {
@@ -24,7 +24,7 @@
   color: var(--green-dec-color);
 }
 .install__content {
-  margin-bottom: 67px;
+  margin-bottom: 80px;
   font-weight: var(--normal-fw);
   font-size: 16px;
   line-height: 40px;

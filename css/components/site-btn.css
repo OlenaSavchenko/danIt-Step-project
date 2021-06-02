@@ -5,26 +5,28 @@
   font-size: 15px;
   line-height: 32px;
   color: var(--light-text-color);
-  padding: 16px 17px;
   border-radius: 4px;
   box-shadow: 0 -5px 0 0 var(--light-text-color);
 }
 
 .header__btn--explore {
-  margin-right: 26px;
+  margin-right: 28px;
+  padding: 14px 22px;
   background-color: var(--green-dec-color);
 }
 
 .header__btn--purchase {
+  padding: 14px 16px;
   background-color: var(--light-blue-dec-color);
 }
 
 .install__btn {
   background-color: var(--green-dec-color);
+  padding: 21px 17px;
 }
 
 .load-more__btn {
-  padding: 22px 23px;
+  padding: 22px 17px;
   background: no-repeat left var(--green-dec-color);
 }
 

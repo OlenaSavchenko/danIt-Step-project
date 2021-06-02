@@ -1,6 +1,6 @@
 .title {
   width: 620x;
-  margin: 0 auto 100px;
+  margin: 0 auto 75px;
   text-align: center;
   font-weight: 400;
   font-size: 36px;
@@ -23,6 +23,6 @@
 }
 
 .title--light-text {
+  margin-bottom: 77px;
   color: var(--light-text-color);
-  margin-bottom: 45px;
 }

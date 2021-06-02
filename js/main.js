@@ -29,7 +29,7 @@ const gallery = {
   timerId: null,
 };
 
-let btnClickCount = [0, 0];
+const btnClickCount = [0, 0];
 
 // ----------services section----------
 const handleServicesListClick = (e) => {
