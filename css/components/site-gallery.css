@@ -3,18 +3,22 @@
 }
 .grid {
   margin: 0 auto 52px;
+  opacity: 0;
+  transition: opacity 0.4s ease-out 0s;
+}
+.grid.loaded {
+  opacity: 1;
 }
 .grid-sizer,
 .grid-item {
   width: 31.63%;
 }
 
-.grid-item > .gallery__img-box {
+.grid-item--inline > .gallery__img-box {
   display: inline-block;
 }
 
 .grid-item {
-  display: inline-block;
   margin-bottom: 20px;
 }
 
@@ -49,7 +53,7 @@
   display: inline-block;
   width: 27px;
   height: 25px;
- }
+}
 
 .gallery__overlay-link:first-child {
   margin-right: 20px;
