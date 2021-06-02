@@ -6,7 +6,7 @@
 }
 .grid-sizer,
 .grid-item {
-  width: 31.63%;
+  width: 33.333%;
 }
 
 .grid-item > .gallery__img-box {
@@ -18,9 +18,9 @@
   margin-bottom: 20px;
 }
 
-.gutter-sizer {
+/* .gutter-sizer {
   width: 1.7%;
-}
+} */
 
 .gallery__img-box {
   position: relative;
