@@ -86,16 +86,20 @@ const handleWorksListClick = (e) => {
 
 const handleWorksLoadMoreBtn = (e) => {
   e.preventDefault();
-  let imgIndex = 12;
-  btnClickCount[0] === 1 ? (imgIndex += imgIndex) : imgIndex;
-  const loader = createLoader();
+
+  let imgSrcNum = 12;
+
+  btnClickCount[0] === 1 ? (imgSrcNum += imgSrcNum) : imgSrcNum;
+
   const item = document.querySelector(".selected");
+
+  const loader = createLoader();
   works.loadMoreBtn.before(loader);
 
   works.timerId = setTimeout(() => {
     loader.remove();
     btnClickCount[0]++;
-    const fragment = createWorksImg(imgIndex);
+    const fragment = createWorksImg(imgSrcNum);
     works.imgList.append(fragment);
     if (item) {
       sortWorksListContent(item);
@@ -109,7 +113,7 @@ const handleWorksLoadMoreBtn = (e) => {
   }, 2000);
 };
 
-const createWorksImg = (imgIndex) => {
+const createWorksImg = (imgSrcNum) => {
   const fragment = document.createDocumentFragment();
   for (let i = 0; i < 12; i++) {
     let content;
@@ -141,7 +145,7 @@ const createWorksImg = (imgIndex) => {
     const li = document.createElement("li");
     li.classList.add("works__photos-item");
     li.innerHTML = `<div class="works__photos-container"> 
-    <img class="works__photos-img img" src="./img/works-section/works-section${imgIndex++}.jpg" alt="our works"/> 
+    <img class="works__photos-img img" src="./img/works-section/works-section${imgSrcNum++}.jpg" alt="our works"/> 
     <div class="works__overlay"> 
     <ul class="list works__overlay-list">
     <li class="works__overlay-item"> 
@@ -175,13 +179,16 @@ const sortWorksListContent = (item) => {
 //  ----------gallery section----------
 
 const handleGalleryLoadMoreBtn = (e) => {
+  let imgSrcNum = 1;
+  btnClickCount[1] === 1 ? (imgSrcNum = 7) : imgSrcNum;
   e.preventDefault();
   const loader = createLoader();
   gallery.loadMoreBtn.before(loader);
-
   gallery.timerId = setTimeout(() => {
     loader.remove();
-    showGalleryImg();
+    const galleryImg = createGalleryImg(imgSrcNum);
+    gallery.container.append(galleryImg);
+    startMasonry();
     btnClickCount[1]++;
     deleteLoadMoreBtn(
       btnClickCount[1],
@@ -191,17 +198,43 @@ const handleGalleryLoadMoreBtn = (e) => {
     );
   }, 2000);
 };
-let msnry;
 
-const showGalleryImg = () => {
-  const imgArr = [...document.querySelectorAll(".hidden-img")];
-  imgArr.forEach((img, i) => {
-    if (i <= 5) {
-      img.className = "gallery__img-box fade";
-    }
-  });
-
-  startMasonry();
+const createGalleryImg = (imgSrcNum) => {
+  const fragment = document.createDocumentFragment();
+  for (let i = 0; i <= 5; i++) {
+    const item = document.createElement("div");
+    item.classList.add("grid-item");
+    item.innerHTML = ` <div class="gallery__img-box fade-img">
+  <img
+    class="gallery__img"
+    src="./img/gallery-section/gallery-img${imgSrcNum++}.jpg"
+    alt="bridge"
+  />
+  <div class="gallery__overlay">
+    <ul class="list gallery__overlay-list">
+      <li class="gallery__overlay-item">
+        <a
+          class="
+            gallery__overlay-link gallery__overlay-link--resize
+          "
+          href="#"
+        >
+        </a>
+      </li>
+      <li>
+        <a
+          class="
+            gallery__overlay-link gallery__overlay-link--search
+          "
+          href="#"
+        ></a>
+      </li>
+     </ul>
+  </div>
+</div>`;
+    fragment.append(item);
+  }
+  return fragment;
 };
 
 //  ----------common js----------
@@ -248,7 +281,7 @@ const deleteLoadMoreBtn = (count, btn, listener, timer) => {
 
 const startMasonry = () => {
   imagesLoaded(document.querySelector(".grid"), function () {
-    msnry = new Masonry(document.querySelector(".grid"), {
+    new Masonry(document.querySelector(".grid"), {
       columnWidth: ".grid-sizer",
       itemSelector: ".grid-item",
       gutter: 20,
