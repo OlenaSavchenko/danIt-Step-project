@@ -6,6 +6,4 @@ const $grid = $(".grid").imagesLoaded(function () {
     itemSelector: ".grid-item",
     gutter: ".gutter-sizer",
   });
-
-  $grid.addClass("loaded");
 });
