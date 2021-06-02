@@ -245,9 +245,10 @@ const deleteLoadMoreBtn = (count, btn, listener, timer) => {
   }
 };
 
+let msnry;
 const startMasonry = () => {
   imagesLoaded(document.querySelector(".grid"), function () {
-    new Masonry(document.querySelector(".grid"), {
+    msnry = new Masonry(document.querySelector(".grid"), {
       columnWidth: ".grid-sizer",
       itemSelector: ".grid-item",
       gutter: 20,
