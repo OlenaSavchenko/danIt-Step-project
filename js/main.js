@@ -199,6 +199,8 @@ const showGalleryImg = () => {
       img.className = "gallery__img-box fade";
     }
   });
+
+  startMasonry();
 };
 
 //  ----------common js----------
@@ -243,6 +245,17 @@ const deleteLoadMoreBtn = (count, btn, listener, timer) => {
   }
 };
 
+const startMasonry = () => {
+  imagesLoaded(document.querySelector(".grid"), function () {
+    new Masonry(document.querySelector(".grid"), {
+      columnWidth: ".grid-sizer",
+      itemSelector: ".grid-item",
+      gutter: 20,
+      singleMode: false,
+    });
+  });
+};
+
 //  ----------listeners----------
 services.list.addEventListener("click", handleServicesListClick);
 slider.list.addEventListener("click", handleSliderClick);
@@ -251,3 +264,4 @@ slider.nextBtn.addEventListener("click", handleSliderNextBtnClick);
 works.list.addEventListener("click", handleWorksListClick);
 works.loadMoreBtn.addEventListener("click", handleWorksLoadMoreBtn);
 gallery.loadMoreBtn.addEventListener("click", handleGalleryLoadMoreBtn);
+window.addEventListener("load", startMasonry);
