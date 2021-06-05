@@ -65,10 +65,12 @@ const handleSliderBtnClick = (e) => {
       : (activeItem = slider.items[index - 1]);
   }
   // handle next button click
-  if (e.target.id === "reviews-slider__btn-next") {
+  else if (e.target.id === "reviews-slider__btn-next") {
     index === slider.items.length - 1
       ? (activeItem = slider.items[0])
       : (activeItem = slider.items[index + 1]);
+  } else {
+    return;
   }
   // set active class for next/previous item in slider
   setActiveClass(slider.items, activeItem, slider.activeClass);
