@@ -7,11 +7,10 @@ const services = {
 };
 
 const slider = {
+  container: document.getElementById("reviews-slider"),
   list: document.getElementById("reviews-slider__list"),
   items: [...document.querySelectorAll(".reviews-slider__item")],
   content: document.querySelectorAll(".reviews-card"),
-  prevBtn: document.getElementById("reviews-slider__btn-prev"),
-  nextBtn: document.getElementById("reviews-slider__btn-next"),
   activeClass: "reviews-slider__item--active",
 };
 
@@ -52,26 +51,28 @@ const handleSliderClick = (e) => {
     showContent(slider.content, item.dataset.sliderUser, "reviewsUser");
   }
 };
-// reviews-slider set one listener
-const handleSliderPrevBtnClick = () => {
+
+const handleSliderBtnClick = (e) => {
+  // get index of chosen in html element
   let index = findActiveItemIndex(slider.items, slider.activeClass);
+  // set variable for next/previous element
   let activeItem;
-  index === 0
-    ? (activeItem = slider.items[slider.items.length - 1])
-    : (activeItem = slider.items[index - 1]);
 
+  // handle prev button click
+  if (e.target.id === "reviews-slider__btn-prev") {
+    index === 0
+      ? (activeItem = slider.items[slider.items.length - 1])
+      : (activeItem = slider.items[index - 1]);
+  }
+  // handle next button click
+  if (e.target.id === "reviews-slider__btn-next") {
+    index === slider.items.length - 1
+      ? (activeItem = slider.items[0])
+      : (activeItem = slider.items[index + 1]);
+  }
+  // set active class for next/previous item in slider
   setActiveClass(slider.items, activeItem, slider.activeClass);
-  showContent(slider.content, activeItem.dataset.sliderUser, "reviewsUser");
-};
-
-const handleSliderNextBtnClick = () => {
-  let index = findActiveItemIndex(slider.items, slider.activeClass);
-  let activeItem;
-  index === slider.items.length - 1
-    ? (activeItem = slider.items[0])
-    : (activeItem = slider.items[index + 1]);
-
-  setActiveClass(slider.items, activeItem, slider.activeClass);
+  // snow next/previous slide
   showContent(slider.content, activeItem.dataset.sliderUser, "reviewsUser");
 };
 
@@ -91,24 +92,33 @@ const handleWorksListClick = (e) => {
 
 const handleWorksLoadMoreBtn = (e) => {
   e.preventDefault();
-
+  // set srcNumber of img (choose srcNumber from 12 to 24)
   let imgSrcNum = 12;
 
+  // change srcNumber of img after first load more button click (choose srcNumber from 25 to 36)
   btnClickCount[0] === 1 ? (imgSrcNum += imgSrcNum) : imgSrcNum;
 
+  // get chosen by user category ("graphic design", "web design", "landing pages", "wordpress")
   const item = document.querySelector(".selected");
 
+  // create loader and add it to html
   const loader = createLoader();
   works.loadMoreBtn.before(loader);
 
   works.timerId = setTimeout(() => {
+    // remove loader
     loader.remove();
+
+    // count number of load more button clicks
     btnClickCount[0]++;
+    // create 12 images and add them to html
     const fragment = createWorksImg(imgSrcNum);
     works.imgList.append(fragment);
+    // show in html images of only one of the 4th categories ("graphic design", "web design", "landing pages", "wordpress") if images are sorted
     if (item) {
       sortWorksListContent(item);
     }
+    // delete load more button, clear setTimeout, remove listener after 2nd load more button click
     deleteLoadMoreBtn(
       btnClickCount[0],
       works.loadMoreBtn,
@@ -121,37 +131,15 @@ const handleWorksLoadMoreBtn = (e) => {
 const createWorksImg = (imgSrcNum) => {
   const fragment = document.createDocumentFragment();
   for (let i = 0; i < 12; i++) {
-    let content;
-    // random ?
-    switch (i) {
-      case 0:
-      case 1:
-      case 2:
-        content = works.titlesArr[0];
-        break;
+    //choose random category for content paragraph ("graphic design", "web design", "landing pages", "wordpress")
+    const randomContent =
+      works.titlesArr[Math.floor(Math.random() * works.titlesArr.length)];
 
-      case 3:
-      case 4:
-      case 5:
-        content = works.titlesArr[1];
-        break;
-
-      case 6:
-      case 7:
-      case 8:
-        content = works.titlesArr[2];
-        break;
-
-      case 9:
-      case 10:
-      case 11:
-        content = works.titlesArr[3];
-        break;
-    }
     const li = document.createElement("li");
     li.classList.add("works__photos-item");
-    // insertAdj
-    li.innerHTML = `<div class="works__photos-container"> 
+    li.insertAdjacentHTML(
+      "afterbegin",
+      `<div class="works__photos-container"> 
     <img class="works__photos-img img" src="./img/works-section/works-section${imgSrcNum++}.jpg" alt="our works"/> 
     <div class="works__overlay"> 
     <ul class="list works__overlay-list">
@@ -160,8 +148,9 @@ const createWorksImg = (imgSrcNum) => {
     <li><a class="works__overlay-link works__overlay-link--elipse" href="#"></a></li>
     </ul>
     <p class="works__overlay-subtitle">creative design</p>
-    <p class="works__overlay-content">${content}</p>
-    </div></div>`;
+    <p class="works__overlay-content">${randomContent}</p>
+    </div></div>`
+    );
     fragment.append(li);
   }
   return fragment;
@@ -186,17 +175,25 @@ const sortWorksListContent = (item) => {
 //  ----------gallery section----------
 
 const handleGalleryLoadMoreBtn = (e) => {
-  let imgSrcNum = 1;
-  btnClickCount[1] === 1 ? (imgSrcNum = 7) : imgSrcNum;
   e.preventDefault();
+  // set srcNumber of img (choose srcNumber from 1 to 6)
+  let imgSrcNum = 1;
+  // change srcNumber of img after first load more button click (choose srcNumber from 7 to 12)
+  btnClickCount[1] === 1 ? (imgSrcNum = 7) : imgSrcNum;
+  // create loader and add it to html
   const loader = createLoader();
   gallery.loadMoreBtn.before(loader);
   gallery.timerId = setTimeout(() => {
+    // remove loader
     loader.remove();
+    // create 6 images and add them to html
     const galleryImg = createGalleryImg(imgSrcNum);
     gallery.container.append(galleryImg);
+    // placing images by masonry library
     startMasonry();
+    // count number of load more button clicks
     btnClickCount[1]++;
+    // delete load more button, clear setTimeout, remove listener after 2nd load more button click
     deleteLoadMoreBtn(
       btnClickCount[1],
       gallery.loadMoreBtn,
@@ -211,35 +208,37 @@ const createGalleryImg = (imgSrcNum) => {
   for (let i = 0; i <= 5; i++) {
     const item = document.createElement("div");
     item.classList.add("grid-item");
-    // insertAdj
-    item.innerHTML = ` <div class="gallery__img-box fade-img">
-  <img
-    class="gallery__img"
-    src="./img/gallery-section/gallery-img${imgSrcNum++}.jpg"
-    alt="bridge"
-  />
-  <div class="gallery__overlay">
-    <ul class="list gallery__overlay-list">
-      <li class="gallery__overlay-item">
-        <a
-          class="
-            gallery__overlay-link gallery__overlay-link--resize
-          "
-          href="#"
-        >
-        </a>
-      </li>
-      <li>
-        <a
-          class="
-            gallery__overlay-link gallery__overlay-link--search
-          "
-          href="#"
-        ></a>
-      </li>
-     </ul>
-  </div>
-</div>`;
+    item.insertAdjacentHTML(
+      "afterbegin",
+      ` <div class="gallery__img-box fade-img">
+    <img
+      class="gallery__img"
+      src="./img/gallery-section/gallery-img${imgSrcNum++}.jpg"
+      alt="bridge"
+    />
+    <div class="gallery__overlay">
+      <ul class="list gallery__overlay-list">
+        <li class="gallery__overlay-item">
+          <a
+            class="
+              gallery__overlay-link gallery__overlay-link--resize
+            "
+            href="#"
+          >
+          </a>
+        </li>
+        <li>
+          <a
+            class="
+              gallery__overlay-link gallery__overlay-link--search
+            "
+            href="#"
+          ></a>
+        </li>
+       </ul>
+    </div>
+  </div>`
+    );
     fragment.append(item);
   }
   return fragment;
@@ -301,8 +300,7 @@ const deleteLoadMoreBtn = (count, btn, listener, timer) => {
 //  ----------listeners----------
 services.list.addEventListener("click", handleServicesListClick);
 slider.list.addEventListener("click", handleSliderClick);
-slider.prevBtn.addEventListener("click", handleSliderPrevBtnClick);
-slider.nextBtn.addEventListener("click", handleSliderNextBtnClick);
+slider.container.addEventListener("click", handleSliderBtnClick);
 works.list.addEventListener("click", handleWorksListClick);
 works.loadMoreBtn.addEventListener("click", handleWorksLoadMoreBtn);
 gallery.loadMoreBtn.addEventListener("click", handleGalleryLoadMoreBtn);
