@@ -8,7 +8,6 @@ const services = {
 
 const slider = {
   container: document.getElementById("reviews-slider"),
-  list: document.getElementById("reviews-slider__list"),
   items: [...document.querySelectorAll(".reviews-slider__item")],
   content: document.querySelectorAll(".reviews-card"),
   activeClass: "reviews-slider__item--active",
@@ -45,17 +44,8 @@ const handleServicesListClick = (e) => {
 
 // ----------reviews section----------
 const handleSliderClick = (e) => {
-  let item = e.target.closest("li");
-  if (item) {
-    setActiveClass(slider.items, item, slider.activeClass);
-    showContent(slider.content, item.dataset.sliderUser, "reviewsUser");
-  }
-};
-
-const handleSliderBtnClick = (e) => {
-  // get index of chosen in html element
+  // get index of chosen in html slide
   let index = findActiveItemIndex(slider.items, slider.activeClass);
-  // set variable for next/previous element
   let activeItem;
 
   // handle prev button click
@@ -69,12 +59,16 @@ const handleSliderBtnClick = (e) => {
     index === slider.items.length - 1
       ? (activeItem = slider.items[0])
       : (activeItem = slider.items[index + 1]);
+  }
+  // handle current slide click
+  else if (e.target.closest("li")) {
+    activeItem = e.target.closest("li");
   } else {
     return;
   }
-  // set active class for next/previous item in slider
+  // set active class for previous/current/next item in slider
   setActiveClass(slider.items, activeItem, slider.activeClass);
-  // show next/previous slide
+  // show previous/current/next slide
   showContent(slider.content, activeItem.dataset.sliderUser, "reviewsUser");
 };
 
@@ -301,8 +295,7 @@ const deleteLoadMoreBtn = (count, btn, listener, timer) => {
 
 //  ----------listeners----------
 services.list.addEventListener("click", handleServicesListClick);
-slider.list.addEventListener("click", handleSliderClick);
-slider.container.addEventListener("click", handleSliderBtnClick);
+slider.container.addEventListener("click", handleSliderClick);
 works.list.addEventListener("click", handleWorksListClick);
 works.loadMoreBtn.addEventListener("click", handleWorksLoadMoreBtn);
 gallery.loadMoreBtn.addEventListener("click", handleGalleryLoadMoreBtn);
