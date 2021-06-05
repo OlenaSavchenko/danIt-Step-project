@@ -34,21 +34,27 @@ const btnClickCount = [0, 0];
 // ----------services section----------
 const handleServicesListClick = (e) => {
   let item = e.target.closest("li");
-  if (!item) return;
-  setActiveClass(services.items, item, "services__item--active");
-  showContent(services.content, item.dataset.servicesTitle, "servicesContent");
+  if (item) {
+    setActiveClass(services.items, item, "services__item--active");
+    showContent(
+      services.content,
+      item.dataset.servicesTitle,
+      "servicesContent"
+    );
+  }
 };
 
 // ----------reviews section----------
 const handleSliderClick = (e) => {
   let item = e.target.closest("li");
-  if (!item) return;
-  setActiveClass(slider.items, item, slider.activeClass);
-  showContent(slider.content, item.dataset.sliderUser, "reviewsUser");
+  if (item) {
+    setActiveClass(slider.items, item, slider.activeClass);
+    showContent(slider.content, item.dataset.sliderUser, "reviewsUser");
+  }
 };
-
+// reviews-slider set one listener
 const handleSliderPrevBtnClick = () => {
-  let index = findActiveItemIndex();
+  let index = findActiveItemIndex(slider.items, slider.activeClass);
   let activeItem;
   index === 0
     ? (activeItem = slider.items[slider.items.length - 1])
@@ -59,7 +65,7 @@ const handleSliderPrevBtnClick = () => {
 };
 
 const handleSliderNextBtnClick = () => {
-  let index = findActiveItemIndex();
+  let index = findActiveItemIndex(slider.items, slider.activeClass);
   let activeItem;
   index === slider.items.length - 1
     ? (activeItem = slider.items[0])
@@ -69,19 +75,18 @@ const handleSliderNextBtnClick = () => {
   showContent(slider.content, activeItem.dataset.sliderUser, "reviewsUser");
 };
 
-const findActiveItemIndex = () => {
-  const item = slider.items.find((item) =>
-    item.classList.contains(slider.activeClass)
-  );
-  const index = slider.items.indexOf(item);
+const findActiveItemIndex = (arr, activeClass) => {
+  const item = arr.find((item) => item.classList.contains(activeClass));
+  const index = arr.indexOf(item);
   return index;
 };
 // ----------works example section----------
 const handleWorksListClick = (e) => {
   const item = e.target.closest("li");
-  if (!item) return;
-  setActiveClass([...works.list.children], item, "selected");
-  sortWorksListContent(item);
+  if (item) {
+    setActiveClass([...works.list.children], item, "selected");
+    sortWorksListContent(item);
+  }
 };
 
 const handleWorksLoadMoreBtn = (e) => {
@@ -117,6 +122,7 @@ const createWorksImg = (imgSrcNum) => {
   const fragment = document.createDocumentFragment();
   for (let i = 0; i < 12; i++) {
     let content;
+    // random ?
     switch (i) {
       case 0:
       case 1:
@@ -144,6 +150,7 @@ const createWorksImg = (imgSrcNum) => {
     }
     const li = document.createElement("li");
     li.classList.add("works__photos-item");
+    // insertAdj
     li.innerHTML = `<div class="works__photos-container"> 
     <img class="works__photos-img img" src="./img/works-section/works-section${imgSrcNum++}.jpg" alt="our works"/> 
     <div class="works__overlay"> 
@@ -204,6 +211,7 @@ const createGalleryImg = (imgSrcNum) => {
   for (let i = 0; i <= 5; i++) {
     const item = document.createElement("div");
     item.classList.add("grid-item");
+    // insertAdj
     item.innerHTML = ` <div class="gallery__img-box fade-img">
   <img
     class="gallery__img"
@@ -235,6 +243,17 @@ const createGalleryImg = (imgSrcNum) => {
     fragment.append(item);
   }
   return fragment;
+};
+
+const startMasonry = () => {
+  imagesLoaded(document.querySelector(".grid"), function () {
+    new Masonry(document.querySelector(".grid"), {
+      columnWidth: ".grid-sizer",
+      itemSelector: ".grid-item",
+      gutter: 20,
+      singleMode: false,
+    });
+  });
 };
 
 //  ----------common js----------
@@ -277,17 +296,6 @@ const deleteLoadMoreBtn = (count, btn, listener, timer) => {
     btn.remove();
     clearTimeout(timer);
   }
-};
-
-const startMasonry = () => {
-  imagesLoaded(document.querySelector(".grid"), function () {
-    new Masonry(document.querySelector(".grid"), {
-      columnWidth: ".grid-sizer",
-      itemSelector: ".grid-item",
-      gutter: 20,
-      singleMode: false,
-    });
-  });
 };
 
 //  ----------listeners----------
