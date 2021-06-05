@@ -72,7 +72,7 @@ const handleSliderBtnClick = (e) => {
   }
   // set active class for next/previous item in slider
   setActiveClass(slider.items, activeItem, slider.activeClass);
-  // snow next/previous slide
+  // show next/previous slide
   showContent(slider.content, activeItem.dataset.sliderUser, "reviewsUser");
 };
 
