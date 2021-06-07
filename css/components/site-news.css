@@ -15,10 +15,6 @@
   margin-bottom: 50px;
 }
 
-.news__item:nth-child(4n) {
-  margin-right: 0;
-}
-
 .news__item:nth-last-child(-n + 4) {
   margin-bottom: 0;
 }
