@@ -26,9 +26,14 @@
 
 .works__item:hover,
 .works__item:focus {
-  border: 1px solid var(--green-dec-color);
   cursor: pointer;
   transition: border 200ms linear;
+}
+
+.works__item:hover,
+.works__item:focus,
+.selected {
+  border: 1px solid var(--green-dec-color);
 }
 
 .works__photos-list {

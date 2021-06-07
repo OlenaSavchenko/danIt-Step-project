@@ -5,9 +5,13 @@
   background-image: url(../../img/header-section/header-background.jpg);
 }
 
+.header {
+  padding-top: 260px;
+  padding-bottom: 231px;
+}
+
 .header__box {
   margin: 0 auto 134px;
-  width: 798px;
   height: 100%;
   color: var(--light-text-color);
   text-align: center;
@@ -23,6 +27,7 @@
 .header--second-part {
   color: var(--green-dec-color);
 }
+
 .header__subtitle {
   display: block;
   margin-bottom: 12px;
@@ -37,10 +42,9 @@
   text-transform: capitalize;
   color: var(--light-grey-text-color);
 }
+
 .header__btn-box {
-  width: 500px;
   display: flex;
   justify-content: center;
   margin: 0 auto;
-  padding-bottom: 231px;
 }

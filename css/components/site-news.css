@@ -4,6 +4,7 @@
 
 .news__list {
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
   margin: 0 auto;
 }
@@ -11,7 +12,6 @@
 .news__item {
   position: relative;
   width: 263px;
-  margin-right: 35px;
   margin-bottom: 50px;
 }
 

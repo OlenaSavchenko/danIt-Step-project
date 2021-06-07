@@ -1,6 +1,5 @@
 .menu__wrapper {
   background-color: var(--nav-bc-color);
-  margin-bottom: 260px;
 }
 
 .menu__container {
@@ -9,15 +8,14 @@
   padding: 26px 0px;
 }
 
-.menu__list {
-  width: 614px;
+.menu__list-wrapper {
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
 .menu__link {
-  position: relative;
+  padding-bottom: 49px;
+  margin-right: 25px;
   font-size: 16px;
   font-weight: var(--bold-fw);
   line-height: 25px;
@@ -29,23 +27,7 @@
 .menu__link:hover,
 .menu__link:focus {
   color: var(--green-dec-color);
-}
-
-.menu__link::after {
-  content: "";
-  position: absolute;
-  display: block;
-  opacity: 0;
-  margin-top: 45px;
-  width: 100%;
-  height: 2px;
-  background-color: var(--green-dec-color);
-  transition: opacity 200ms linear;
-}
-
-.menu__link:hover::after,
-.menu__link:focus::after {
-  opacity: 1;
+  border-bottom: 2px solid var(--green-dec-color);
 }
 
 .menu__svg {
